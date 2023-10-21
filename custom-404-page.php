@@ -12,5 +12,10 @@
  * Text Domain: custom-404-page
  */
 
- 
+require_once __DIR__."/classes/custom-functions.php";
+use Custom404Page\Classes\CustomFunctions;
+
+$cf = new CustomFunctions();
+
+add_action('template_redirect',[$cf,'custom_404_page']);
 ?>
