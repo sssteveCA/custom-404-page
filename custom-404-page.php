@@ -12,10 +12,14 @@
  * Text Domain: custom-404-page
  */
 
-require_once __DIR__."/classes/custom-functions.php";
+require_once __DIR__."/vendor/autoload.php";
+use Custom404Page\Classes\AdminCustomFunction;
 use Custom404Page\Classes\CustomFunctions;
 
 $cf = new CustomFunctions();
+$acf = new AdminCustomFunction();
 
 add_action('template_redirect',[$cf,'custom_404_page']);
+
+add_action('admin_menu',[$acf,'custom_404_page_menu']);
 ?>
