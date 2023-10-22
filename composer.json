@@ -2,14 +2,5 @@
     "name": "stepp/custom-404-page",
     "description": "Custom 404 page",
     "license": "GPL",
-    "require": {},
-    "autoload": {
-        "files": [
-            "classes/activation-deactivation.php",
-            "classes/admin-custom-functions.php",
-            "classes/custom-functions.php",
-            "interfaces/constants.php",
-            "traits/custom-functions-trait.php"
-        ]
-    }
+    "require": {}
 }

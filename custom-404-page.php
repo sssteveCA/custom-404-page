@@ -11,8 +11,11 @@
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: custom-404-page
  */
-
-require_once __DIR__."/vendor/autoload.php";
+require_once './interfaces/constants.php';
+require_once './trait/custom-functions-trait.php';
+require_once './classes/activation-deactivation.php';
+require_once './classes/admin-custom-functions.php';
+require_once './classes/custom-functions.php';
 
 use Custom404Page\Classes\ActivationDeactivation;
 use Custom404Page\Classes\AdminCustomFunction;
