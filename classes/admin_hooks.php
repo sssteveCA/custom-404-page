@@ -80,10 +80,15 @@ HTML;
      * Add CSS and JS dependencies for the admin custom 404 page menu
      */
     public function enqueue_admin_files(){
-        $css_stylesheet = plugins_url().'/custom_404_page/dist/css/admin_custom_page_menu.css';
-        if(file_exists($css_stylesheet)){
-            wp_enqueue_style('Custom404PageMenu',$css_stylesheet,[],null);
+        if($_REQUEST['page'] == 'custom-404-page'){
+            $css_stylesheet_relative = '/custom_404_page/dist/css/admin_custom_page_menu.css';
+            $css_stylesheet = WP_PLUGIN_DIR.$css_stylesheet_relative;
+            if(file_exists($css_stylesheet)){
+                $css_stylesheet_url = plugins_url().$css_stylesheet_relative;
+                wp_enqueue_style('Custom404PageMenu',$css_stylesheet_url,[],null);
+            }
         }
+        
     }
 }
 ?>
