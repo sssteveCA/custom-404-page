@@ -13,16 +13,18 @@ use CustomErrorPage\Classes\AdminHooks;
  * Text Domain: custom_404_page
  */
 
-require_once ("interfaces/constants.php");
-require_once ("vendor/autoload.php");
-require_once ("classes/wp_hooks.php");
+//require_once ("interfaces/constants.php");
+require_once("traits/hooks_trait.php");
+require_once("classes/activation_deactivation.php");
+require_once("classes/admin_hooks.php");
+//require_once ("classes/wp_hooks.php");
 
 $ad = new ActivationDeactivation($GLOBALS['wpdb']);
 $acf = new AdminHooks();
 //$cf = new \CustomErrorPage\Classes\WpHooks();
 
-register_activation_hook(__FILE__,[$ad,'activate']);
-register_uninstall_hook(__FILE__,[$ad,'uninstall']);
+/* register_activation_hook(__FILE__,[$ad,'activate']);
+register_uninstall_hook(__FILE__,[$ad,'uninstall']); */
 
 add_action('admin_enqueue_scripts',[$acf,'enqueue_bootstrap_scripts'],11);
 add_action('admin_menu',[$acf,'custom_404_page_menu']);
