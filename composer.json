@@ -5,7 +5,7 @@
     "require": {},
     "autoload": {
         "classmap": [
-            "classes/","templates/"
+            "classes/","interfaces/","traits/"
         ]
     }
 }
