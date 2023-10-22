@@ -13,7 +13,6 @@
  */
 
 require_once __DIR__."/vendor/autoload.php";
-require_once __DIR__."/classes/custom-functions.php";
 
 use Custom404Page\Classes\ActivationDeactivation;
 use Custom404Page\Classes\AdminCustomFunction;

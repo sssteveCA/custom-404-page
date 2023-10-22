@@ -4,8 +4,12 @@
     "license": "GPL",
     "require": {},
     "autoload": {
-        "classmap": [
-            "classes/","interfaces/","traits/"
+        "files": [
+            "classes/activation-deactivation.php",
+            "classes/admin-custom-functions.php",
+            "classes/custom-functions.php",
+            "interfaces/constants.php",
+            "traits/custom-functions-trait.php"
         ]
     }
 }

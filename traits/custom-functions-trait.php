@@ -1,6 +1,6 @@
 <?php
 
-namespace Custom404Page\Trait;
+namespace Custom404Page\Traits;
 
 use Custom404Page\Interfaces\Constants as C;
 
