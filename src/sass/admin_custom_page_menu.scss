@@ -1,0 +1,13 @@
+
+
+@mixin admin-custom-page-menu(){
+    #custom-404-item-container{
+        .container-fluid{
+            .row{
+                border: 1px solid black;
+            }    
+        }
+    }
+}
+
+@include admin-custom-page-menu()

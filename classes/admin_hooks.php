@@ -33,25 +33,29 @@ class AdminHooks{
             </div>
         <div>
         <div class="row mt-3">
-            <div class="col">
+            <div class="col-12">
                 <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image">
                 <label for="enable-custom-404-image" class="form-label ms-2">Utilizza un'immagine per la pagina 404</label>
             </div>
-            <div class="col">
+            <div class="col-12 col-lg-6">
                 <label for="custom-404-image" class="form-label">Aggiungi o modifica l'immagine per la pagina 404</label>
+            </div>
+            <div class="col-12 col-lg-6">
                 <input type="file" id="custom-404-image" class="form-control" name="custom-404-image" accept="image/*">
             </div>
-            <div class="col">
+            <div class="col-12">
                 Percorso immagine 404: 
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col">
+            <div class="col-12">
                 <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text">
                 <label for="enable-custom-404-text" class="form-label ms-2">Utilizza un testo per la pagina 404</label>
             </div>
-            <div class="col d-flex flex-column">
+            <div class="col-12 col-lg-6">
                 <label for="custom-404-text" class="form-label">Testo per la pagina 404</label>
+            </div>
+            <div class="col-12 col-lg-6">
                 <textarea id="custom-404-text" class="form-control" name="custom-404-text"></textarea>
             </div>
         </div>
