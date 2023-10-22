@@ -7,8 +7,8 @@ namespace CustomErrorPage\Traits;
  */
 trait HooksTrait{
 
-    private static $bootstrap_css_relative = '/custom-404-page/node_modules/boostrap/dist/css/bootstrap.min.css';
-    private static $bootstrap_js_relative = '/custom-404-page/node_modules/boostrap/dist/js/bootstrap.min.js';
+    private static $bootstrap_css_relative = '/custom_404_page/node_modules/boostrap/dist/css/bootstrap.min.css';
+    private static $bootstrap_js_relative = '/custom_404_page/node_modules/boostrap/dist/js/bootstrap.min.js';
 
     /**
      * Insert the bootstrap CSS and JS main files

@@ -8,6 +8,10 @@
             }    
         }
     }
+    textarea#custom-404-text{
+        height: 250px;
+        resize: vertical;
+    }
 }
 
 @include admin-custom-page-menu()
