@@ -9,6 +9,8 @@ use CustomErrorPage\Interfaces\Constants;
  */
 class ActivationDeactivation{
 
+    const TABLE_NAME = "custom_404_page_table";
+
     private \wpdb $wpdb;
 
     public function __construct(\wpdb $wpdb){
@@ -19,7 +21,7 @@ class ActivationDeactivation{
      * Executed while plugin activation
      */
     public function activate(){
-        $table_name = $this->wpdb->prefix .Constants::TABLE_NAME;
+        $table_name = $this->wpdb->prefix .self::TABLE_NAME;
         $charset_collate = $this->wpdb->get_charset_collate();
         $query = <<<SQL
 CREATE TABLE {$table_name} (
@@ -37,7 +39,7 @@ SQL;
      * Executed while plugin uninstallation
      */
     public function uninstall(){
-        $table_name = $this->wpdb->prefix .\CustomErrorPage\Interfaces\Constants::TABLE_NAME;
+        $table_name = $this->wpdb->prefix .self::TABLE_NAME;
         $query = <<<SQL
 DROP TABLE IF EXISTS {$table_name};
 SQL;
