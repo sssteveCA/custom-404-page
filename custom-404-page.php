@@ -13,8 +13,14 @@
  */
 
 require_once __DIR__."/vendor/autoload.php";
+
+use Custom404Page\Classes\ActivationDeactivation;
 use Custom404Page\Classes\AdminCustomFunction;
 use Custom404Page\Classes\CustomFunctions;
+
+$ad = new ActivationDeactivation($wpdb);
+
+register_activation_hook(__FILE__,[$ad,'activate']);
 
 $cf = new CustomFunctions();
 $acf = new AdminCustomFunction();
