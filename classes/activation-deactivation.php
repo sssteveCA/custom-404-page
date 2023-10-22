@@ -15,6 +15,9 @@ class ActivationDeactivation{
         $this->wpdb = $wpdb;
     }
 
+    /**
+     * Executed while plugin activation
+     */
     public function activate(){
         $table_name = $this->wpdb->prefix ."custom_404_page_table";
         $charset_collate = $this->wpdb->get_charset_collate();
@@ -28,6 +31,17 @@ CREATE TABLE {$table_name} (
 SQL;
         require_once ABSPATH."/wp-admin/includes/upgrade.php";
         dbDelta( $query );
+    }
+
+    /**
+     * Executed while plugin uninstallation
+     */
+    public function uninstall(){
+        $table_name = $this->wpdb->prefix ."custom_404_page_table";
+        $query = <<<SQL
+DROP TABLE IF EXISTS {$table_name};
+SQL;
+        $this->wpdb->query($query);
     }
 
 }

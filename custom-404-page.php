@@ -21,11 +21,11 @@ use Custom404Page\Classes\CustomFunctions;
 $ad = new ActivationDeactivation($wpdb);
 
 register_activation_hook(__FILE__,[$ad,'activate']);
+register_uninstall_hook(__FILE__,[$ad,'uninstall']);
 
 $cf = new CustomFunctions();
 $acf = new AdminCustomFunction();
 
 add_action('template_redirect',[$cf,'custom_404_page']);
-
 add_action('admin_menu',[$acf,'custom_404_page_menu']);
 ?>
