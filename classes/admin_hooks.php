@@ -1,8 +1,8 @@
 <?php
 
-namespace Custom404Page\Classes;
+namespace CustomErrorPage\Classes;
+use CustomErrorPage\Traits\HooksTrait;
 
-use Custom404Page\Traits\HooksTrait;
 
 /**
  * Function used in custom 404 page admin panel

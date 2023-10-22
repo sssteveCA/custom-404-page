@@ -1,7 +1,12 @@
 {
     "autoload": {
-        "classmap": [
-            "classes/","interfaces/","traits/"
+        "files": [
+            "interfaces/constants.php",
+            "traits/hooks_trait.php",
+            "classes/activation_deactivation.php",
+            "classes/admin_hooks.php",
+            "classes/wp_hooks.php",
+            "classes/activation_deactivation.php"
         ]
     }
 }

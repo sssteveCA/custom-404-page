@@ -1,18 +1,17 @@
 <?php
 
-namespace Custom404Page\Classes;
+namespace CustomErrorPage\Classes;
+use CustomErrorPage\Interfaces\Constants;
 
-use wpdb;
-use Custom404Page\Interfaces\Constants as C;
 
 /**
  * Plugin activation/deactivation functions
  */
 class ActivationDeactivation{
 
-    private wpdb $wpdb;
+    private \wpdb $wpdb;
 
-    public function __construct(wpdb $wpdb){
+    public function __construct(\wpdb $wpdb){
         $this->wpdb = $wpdb;
     }
 
@@ -20,7 +19,7 @@ class ActivationDeactivation{
      * Executed while plugin activation
      */
     public function activate(){
-        $table_name = $this->wpdb->prefix .C::TABLE_NAME;
+        $table_name = $this->wpdb->prefix .Constants::TABLE_NAME;
         $charset_collate = $this->wpdb->get_charset_collate();
         $query = <<<SQL
 CREATE TABLE {$table_name} (
@@ -38,7 +37,7 @@ SQL;
      * Executed while plugin uninstallation
      */
     public function uninstall(){
-        $table_name = $this->wpdb->prefix .C::TABLE_NAME;
+        $table_name = $this->wpdb->prefix .\CustomErrorPage\Interfaces\Constants::TABLE_NAME;
         $query = <<<SQL
 DROP TABLE IF EXISTS {$table_name};
 SQL;

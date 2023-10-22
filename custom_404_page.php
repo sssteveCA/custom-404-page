@@ -1,5 +1,6 @@
 <?php
-
+use CustomErrorPage\Classes\ActivationDeactivation;
+use CustomErrorPage\Classes\AdminHooks;
 /**
  * Plugin Name: Custom 404 page
  * Description: Customize your 404 page
@@ -12,18 +13,19 @@
  * Text Domain: custom_404_page
  */
 
-require_once("vendor/autoload.php");
-require_once ("classes/wp_custom_functions.php");
+require_once ("interfaces/constants.php");
+require_once ("vendor/autoload.php");
+require_once ("classes/wp_hooks.php");
 
-$ad = new \Custom404Page\Classes\ActivationDeactivation($GLOBALS['wpdb']);
-$acf = new \Custom404Page\Classes\AdminHooks();
-$cf = new \Custom404Page\Classes\WpHooks();
+$ad = new ActivationDeactivation($GLOBALS['wpdb']);
+$acf = new AdminHooks();
+//$cf = new \CustomErrorPage\Classes\WpHooks();
 
 register_activation_hook(__FILE__,[$ad,'activate']);
 register_uninstall_hook(__FILE__,[$ad,'uninstall']);
 
 add_action('admin_enqueue_scripts',[$acf,'enqueue_bootstrap_scripts'],11);
 add_action('admin_menu',[$acf,'custom_404_page_menu']);
-add_action('template_redirect',[$cf,'custom_404_page']);
-add_action('wp_enqueue_scripts',[$cf,'enqueue_bootstrap_scripts'],11);
+/* add_action('template_redirect',[$cf,'custom_404_page']);
+add_action('wp_enqueue_scripts',[$cf,'enqueue_bootstrap_scripts'],11); */
 ?>
