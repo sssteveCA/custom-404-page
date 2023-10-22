@@ -3,8 +3,8 @@
 @mixin admin-custom-page-menu(){
     #custom-404-item-container{
         .container-fluid{
-            .row{
-                border: 1px solid black;
+            .row.bordered{
+                background-color: rgba(213, 255, 2, 0.5)
             }    
         }
     }
