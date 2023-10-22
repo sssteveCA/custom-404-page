@@ -9,16 +9,15 @@
  * Author: Stefano Puggioni
  * License: GPL v3 or later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain: custom-404-page
+ * Text Domain: custom_404_page
  */
 
-use Custom404Page\Classes\ActivationDeactivation;
-use Custom404Page\Classes\AdminCustomFunction;
-use Custom404Page\Classes\WpCustomFunctions;
+require_once("vendor/autoload.php");
+require_once ("classes/wp_custom_functions.php");
 
-$ad = new ActivationDeactivation($GLOBALS['wpdb']);
-$cf = new WpCustomFunctions();
-$acf = new AdminCustomFunction();
+$ad = new \Custom404Page\Classes\ActivationDeactivation($GLOBALS['wpdb']);
+$acf = new \Custom404Page\Classes\AdminHooks();
+$cf = new \Custom404Page\Classes\WpHooks();
 
 register_activation_hook(__FILE__,[$ad,'activate']);
 register_uninstall_hook(__FILE__,[$ad,'uninstall']);

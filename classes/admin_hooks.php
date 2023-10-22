@@ -1,14 +1,15 @@
 <?php
 
 namespace Custom404Page\Classes;
-use Custom404Page\Traits\CustomFunctionsTrait;
+
+use Custom404Page\Traits\HooksTrait;
 
 /**
  * Function used in custom 404 page admin panel
  */
-class AdminCustomFunction{
+class AdminHooks{
 
-    use CustomFunctionsTrait;
+    use HooksTrait;
 
     public function __construct(){}
 

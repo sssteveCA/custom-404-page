@@ -2,19 +2,17 @@
 
 namespace Custom404Page\Traits;
 
-use Custom404Page\Interfaces\Constants as C;
-
 /**
- * Trait used by CustomFunctions and AdminCustomFunctions classes
+ * Trait used by WpHooks and AdminHooks classes
  */
-trait CustomFunctionsTrait{
+trait HooksTrait{
 
     /**
      * Insert the bootstrap CSS and JS main files
      */
     public function enqueue_bootstrap_scripts(){
-        $bootstrapCssAbs = WP_PLUGIN_DIR.C::BOOSTRAP_CSS_RELATIVE;
-        $bootstrapJsAbs = WP_PLUGIN_DIR.C::BOOSTRAP_JS_RELATIVE;
+        $bootstrapCssAbs = WP_PLUGIN_DIR.\Custom404Page\Interfaces\Constants::BOOSTRAP_CSS_RELATIVE;
+        $bootstrapJsAbs = WP_PLUGIN_DIR.\Custom404Page\Interfaces\Constants::BOOSTRAP_JS_RELATIVE;
         if(file_exists($bootstrapCssAbs) && file_exists($bootstrapJsAbs)){
             $styles = wp_styles();
             $pattern = '/Bootstrap/i';
@@ -25,8 +23,8 @@ trait CustomFunctionsTrait{
             array_walk($scripts->queue, function($key,$value) use($pattern){
                 if(preg_match($pattern, $value)) wp_dequeue_script($value);
             });
-            $bootstrapCss = plugins_url().C::BOOSTRAP_CSS_RELATIVE;
-            $bootstrapJs = plugins_url().C::BOOSTRAP_JS_RELATIVE;
+            $bootstrapCss = plugins_url().\Custom404Page\Interfaces\Constants::BOOSTRAP_CSS_RELATIVE;
+            $bootstrapJs = plugins_url().\Custom404Page\Interfaces\Constants::BOOSTRAP_JS_RELATIVE;
             wp_enqueue_style('BootstrapCss',$bootstrapCss,[],'5.3.2');
             wp_enqueue_script('BootstrapJs',$bootstrapJs,[],'5.3.2',true);
         }

@@ -1,8 +1,4 @@
 {
-    "name": "stepp/custom-404-page",
-    "description": "Custom 404 page",
-    "license": "GPL",
-    "require": {},
     "autoload": {
         "classmap": [
             "classes/","interfaces/","traits/"
