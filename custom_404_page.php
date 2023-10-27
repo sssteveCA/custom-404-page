@@ -13,11 +13,7 @@ use CustomErrorPage\Classes\AdminHooks;
  * Text Domain: custom_404_page
  */
 
-//require_once ("interfaces/constants.php");
-require_once("traits/hooks_trait.php");
-require_once("classes/activation_deactivation.php");
-require_once("classes/admin_hooks.php");
-//require_once ("classes/wp_hooks.php");
+require_once __DIR__.'/vendor/autoload.php';
 
 $wpdb = $GLOBALS['wpdb'];
 $ad = new ActivationDeactivation($wpdb);
