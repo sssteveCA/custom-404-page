@@ -57,20 +57,34 @@ HTML;
         <div class="row bordered mt-3">
             <div class="col-12">
 HTML;
-            if($useImage)
+            if($enabledCustomPage){
+                if($useImage)
                 $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" checked>
 HTML;
-           else
-                $html .= <<<HTML
+                else
+                    $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image">
 HTML;
-            $html .= <<<HTML
+            }
+            else
+                $html .= <<<HTML
+                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" disabled>
+HTML;
+                $html .= <<<HTML
                 <label for="enable-custom-404-image" class="form-label ms-2">Utilizza un'immagine per la pagina 404</label>
             </div>
+        <div>
 HTML;
-            if($useImage)
+            if($enabledCustomPage && $useImage)
+                    $html .= <<<HTML
+        <div id="page-404-image-section" class="row mt-1">
+HTML;
+            else
                 $html .= <<<HTML
+        <div id="page-404-image-section" class="row mt-1 d-none">
+HTML;
+            $html .= <<<HTML
             <div class="col-12 col-lg-6">
                 <label for="custom-404-image" class="form-label">Aggiungi o modifica l'immagine per la pagina 404</label>
             </div>
@@ -81,26 +95,41 @@ HTML;
                 Percorso immagine 404: {$imagePath}
             </div>
 HTML;
+            
             $html .= <<<HTML
         </div>
-        <div class="row bordered mt-3">
+        <div class="row mt-3">
             <div class="col-12">
 HTML;
-             if($useImage)
-                $html .= <<<HTML
+            if($enabledCustomPage){
+                if($useText)
+                    $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" checked>
 HTML;
-             else
-                $html .= <<<HTML
+                else
+                    $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text">
+HTML;
+            }
+            else
+                $html .= <<<HTML
+            <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" disabled>
 HTML;
             $html .= <<<HTML
                 <label for="enable-custom-404-text" class="form-label ms-2">Utilizza un testo per la pagina 404</label>
             </div>
+        </div>
 HTML;
         
-        if($useText)
+        if($enabledCustomPage && $useText)
             $html .= <<<HTML
+        <div id="page-404-text-section" class="row mt-1">
+HTML;
+        else
+            $html .= <<<HTML
+        <div id="page-404-text-section" class="row mt-1 d-none">
+HTML;
+        $html .= <<<HTML
             <div class="col-12 col-lg-6">
                 <label for="custom-404-text" class="form-label">Testo per la pagina 404</label>
             </div>
@@ -113,13 +142,19 @@ HTML;
         <div class="row mt-3">
             <div class="col">
 HTML;
-        if($showArticles)
-            $html .= <<<HTML
+        if($enabledCustomPage){
+            if($showArticles)
+                $html .= <<<HTML
                 <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" checked> 
 HTML;
         else
             $html .= <<<HTML
                 <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles">
+HTML;
+        }
+        else
+            $html .= <<<HTML
+                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" disabled>
 HTML;
         $html .= <<<HTML
                 <label for="show-random-articles" class="form-label ms-2">Mostra articoli</label>
