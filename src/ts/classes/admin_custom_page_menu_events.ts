@@ -1,4 +1,4 @@
-import { AdminCustomPageMenuEventsType } from "../types/types";
+import { AdminCustomPageMenuEventsType, AdminCustomPageUpdateSettingsType } from "../types/types";
 
 export class AdminCustomPageMenuEvents{
 
@@ -34,7 +34,7 @@ export class AdminCustomPageMenuEvents{
     get cb_show_articles(){ return this._cb_show_articles; }
     get bt_save(){ return this._bt_save; }
 
-    public addEvents(onSaveButtonClick: () => void){
+    public addEvents(onSaveButtonClick: (acpust: AdminCustomPageUpdateSettingsType) => void){
         this.setEnablePageEvent();
         this.setEnableImageEvent();
         this.setEnableTextEvent();
@@ -88,9 +88,23 @@ export class AdminCustomPageMenuEvents{
         })
     }
 
-    private setSaveButtonEvent(callback: () => void): void{
+    private setSaveButtonEvent(callback: (acpust: AdminCustomPageUpdateSettingsType) => void): void{
         this._bt_save.on('click',()=>{
-            callback();
+            const native_input: HTMLInputElement = this._input_file_image.get(0) as HTMLInputElement;
+            let file: File|undefined = undefined;
+            if(native_input && native_input.files && native_input.files.length > 0){
+                file = native_input.files[0] as File;
+            }
+            const acpustType: AdminCustomPageUpdateSettingsType = {
+                enable_page: this._cb_enable_page.val() as unknown as boolean,
+                enable_image: this._cb_enable_image.val() as unknown as boolean,
+                file_image: file as File,
+                enable_text: this._cb_enable_text.val() as unknown as boolean,
+                text: this._ta_text.val() as string,
+                show_articles: this._cb_show_articles.val() as unknown as boolean
+
+            }
+            callback(acpustType);
         })
     }
 }
