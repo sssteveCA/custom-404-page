@@ -67,7 +67,7 @@ SQL;
         $result = $this->wpdb->get_results($sql,ARRAY_A);
         $this->enable_custom_404_page = (isset($result['enable_custom_404_page'])) ? $result['enable_custom_404_page'] : false;
         $this->use_image = (isset($result['use_image'])) ? $result['use_image'] : false;
-        $this->image_path = (isset($result['image_path'])) ? $result['image_path'] :null;
+        $this->image_path = (isset($result['image_path'])) ? $result['image_path'] : null;
         $this->use_text = (isset($result['use_text'])) ? $result['use_test'] : false;
         $this->custom_404_page_text = (isset($result['custom_404_page_text'])) ? $result['custom_404_page_text'] : null;
         $this->show_articles = (isset($result['show_articles'])) ? $result['show_articles'] : false;

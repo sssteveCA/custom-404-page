@@ -25,6 +25,12 @@ class AdminHooks{
     public function custom_404_page_menu(){
         add_menu_page('Pagina 404 personalizzata','Pagina 404 personalizzata','administrator','custom-404-page',function(){
             $peo = new PageErrorOptions($this->wpdb,$this->wpdb->prefix.self::TABLE_NAME);
+            $enabledCustomPage = $peo->getEnableCustom404Page();
+            $useImage = $peo->getUseImage();
+            $imagePath = $peo->getImagePath() ? $peo->getImagePath() : "";
+            $useText = $peo->getUseText();
+            $text = $peo->getCustom404PageText() ? $peo->getCustom404PageText() : "";
+            $showArticles = $peo->getShowArticles();
             $html = <<<HTML
 <div id="custom-404-item-container">
     <div class="container-fluid">
@@ -36,7 +42,7 @@ class AdminHooks{
         <div class="row mt-3">
             <div class="col">
 HTML;
-            if($peo->getEnableCustom404Page())
+            if($enabledCustomPage)
                 $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404" class="form-check-input" name="enable-custom-404" checked>
 HTML;
@@ -51,7 +57,7 @@ HTML;
         <div class="row bordered mt-3">
             <div class="col-12">
 HTML;
-            if($peo->getUseImage())
+            if($useImage)
                 $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" checked>
 HTML;
@@ -62,17 +68,17 @@ HTML;
             $html .= <<<HTML
                 <label for="enable-custom-404-image" class="form-label ms-2">Utilizza un'immagine per la pagina 404</label>
             </div>
+HTML;
+            if($useImage)
+                $html .= <<<HTML
             <div class="col-12 col-lg-6">
                 <label for="custom-404-image" class="form-label">Aggiungi o modifica l'immagine per la pagina 404</label>
             </div>
             <div class="col-12 col-lg-6">
                 <input type="file" id="custom-404-image" class="form-control" name="custom-404-image" accept="image/*">
             </div>
-HTML;
-            if($peo->getUseImage() && $peo->getImagePath())
-            $html .= <<<HTML
             <div class="col-12">
-                Percorso immagine 404:
+                Percorso immagine 404: {$imagePath}
             </div>
 HTML;
             $html .= <<<HTML
@@ -80,12 +86,12 @@ HTML;
         <div class="row bordered mt-3">
             <div class="col-12">
 HTML;
-             if($peo->getUseText())
-             $html .= <<<HTML
+             if($useImage)
+                $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" checked>
 HTML;
              else
-             $html .= <<<HTML
+                $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text">
 HTML;
             $html .= <<<HTML
@@ -96,14 +102,10 @@ HTML;
             </div>
             <div class="col-12 col-lg-6">
 HTML;
-        $text = $peo->getCustom404PageText();
-        if($peo->getUseImage())
+        
+        if($useText)
             $html .= <<<HTML
                 <textarea id="custom-404-text" class="form-control" name="custom-404-text">{$text}</textarea>
-HTML;
-        else
-            $html .= <<<HTML
-                <textarea id="custom-404-text" class="form-control" name="custom-404-text" disabled>{$text}</textarea>
 HTML;
         $html .= <<<HTML
             </div>
@@ -111,7 +113,7 @@ HTML;
         <div class="row-mt-3">
             <div class="col">
 HTML;
-        if($peo->getShowArticles())
+        if($showArticles)
             $html .= <<<HTML
                 <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" checked> 
 HTML;
