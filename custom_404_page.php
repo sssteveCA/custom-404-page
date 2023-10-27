@@ -19,8 +19,9 @@ require_once("classes/activation_deactivation.php");
 require_once("classes/admin_hooks.php");
 //require_once ("classes/wp_hooks.php");
 
-$ad = new ActivationDeactivation($GLOBALS['wpdb']);
-$acf = new AdminHooks();
+$wpdb = $GLOBALS['wpdb'];
+$ad = new ActivationDeactivation($wpdb);
+$acf = new AdminHooks($wpdb);
 //$cf = new \CustomErrorPage\Classes\WpHooks();
 
 /* register_activation_hook(__FILE__,[$ad,'activate']);

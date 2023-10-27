@@ -2,7 +2,7 @@
 
 namespace CustomErrorPage\Classes;
 use CustomErrorPage\Traits\HooksTrait;
-
+use wpdb;
 
 /**
  * Function used in custom 404 page admin panel
@@ -11,14 +11,21 @@ class AdminHooks{
 
     use HooksTrait;
 
-    public function __construct(){}
+    const TABLE_NAME = "custom_404_page_table";
+
+    private wpdb $wpdb;
+
+    public function __construct(wpdb $wpdb){
+        $this->wpdb = $wpdb;
+    }
 
     /**
      * Add the custom 404 page item in the admin panel
      */
     public function custom_404_page_menu(){
         add_menu_page('Pagina 404 personalizzata','Pagina 404 personalizzata','administrator','custom-404-page',function(){
-            echo <<<HTML
+            $peo = new PageErrorOptions($this->wpdb,$this->wpdb->prefix.self::TABLE_NAME);
+            $html = <<<HTML
 <div id="custom-404-item-container">
     <div class="container-fluid">
         <div class="row mt-1">
@@ -28,13 +35,31 @@ class AdminHooks{
         </div>
         <div class="row mt-3">
             <div class="col">
+HTML;
+            if($peo->getEnableCustom404Page())
+                $html .= <<<HTML
+                <input type="checkbox" id="enable-custom-404" class="form-check-input" name="enable-custom-404" checked>
+HTML;
+            else
+            $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404" class="form-check-input" name="enable-custom-404">
+HTML;
+            $html .= <<<HTML
                 <label for="enable-custom-404" class="form-label ms-2">Utilizza la pagina 404</label>
             </div>
         <div>
         <div class="row bordered mt-3">
             <div class="col-12">
+HTML;
+            if($peo->getUseImage())
+                $html .= <<<HTML
+                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" checked>
+HTML;
+           else
+                $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image">
+HTML;
+            $html .= <<<HTML
                 <label for="enable-custom-404-image" class="form-label ms-2">Utilizza un'immagine per la pagina 404</label>
             </div>
             <div class="col-12 col-lg-6">
@@ -43,25 +68,58 @@ class AdminHooks{
             <div class="col-12 col-lg-6">
                 <input type="file" id="custom-404-image" class="form-control" name="custom-404-image" accept="image/*">
             </div>
+HTML;
+            if($peo->getUseImage() && $peo->getImagePath())
+            $html .= <<<HTML
             <div class="col-12">
-                Percorso immagine 404: 
+                Percorso immagine 404:
             </div>
+HTML;
+            $html .= <<<HTML
         </div>
         <div class="row bordered mt-3">
             <div class="col-12">
+HTML;
+             if($peo->getUseText())
+             $html .= <<<HTML
+                <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" checked>
+HTML;
+             else
+             $html .= <<<HTML
                 <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text">
+HTML;
+            $html .= <<<HTML
                 <label for="enable-custom-404-text" class="form-label ms-2">Utilizza un testo per la pagina 404</label>
             </div>
             <div class="col-12 col-lg-6">
                 <label for="custom-404-text" class="form-label">Testo per la pagina 404</label>
             </div>
             <div class="col-12 col-lg-6">
-                <textarea id="custom-404-text" class="form-control" name="custom-404-text"></textarea>
+HTML;
+        $text = $peo->getCustom404PageText();
+        if($peo->getUseImage())
+            $html .= <<<HTML
+                <textarea id="custom-404-text" class="form-control" name="custom-404-text">{$text}</textarea>
+HTML;
+        else
+            $html .= <<<HTML
+                <textarea id="custom-404-text" class="form-control" name="custom-404-text" disabled>{$text}</textarea>
+HTML;
+        $html .= <<<HTML
             </div>
         </div>
         <div class="row-mt-3">
             <div class="col">
+HTML;
+        if($peo->getShowArticles())
+            $html .= <<<HTML
+                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" checked> 
+HTML;
+        else
+            $html .= <<<HTML
                 <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles">
+HTML;
+        $html .= <<<HTML
                 <label for="show-random-articles" class="form-label ms-2">Mostra articoli</label>
             </div>
         </div>
@@ -73,6 +131,7 @@ class AdminHooks{
     </div>
 </div>          
 HTML;
+            echo $html;
         });
     }
 
