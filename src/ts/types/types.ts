@@ -14,3 +14,15 @@ export type AdminCustomPageMenuEventsType = {
     cb_show_articles: JQuery<HTMLInputElement>;
     bt_save: JQuery<HTMLButtonElement>;
 }
+
+/**
+ * Type for AdminCustomPageUpdateSettings class
+ */
+export type AdminCustomPageUpdateSettingsType = {
+    enable_page: boolean;
+    enable_image: boolean;
+    file_image: File;
+    enable_text: boolean;
+    text: string;
+    show_articles: boolean;
+}
