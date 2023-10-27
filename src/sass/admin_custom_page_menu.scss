@@ -3,9 +3,12 @@
 @mixin admin-custom-page-menu(){
     #custom-404-item-container{
         .container-fluid{
-            .row.bordered{
-                background-color: rgba(213, 255, 2, 0.5)
-            }    
+            .row{
+                label{
+                    font-weight: bolder;
+                    font-size: 14px;
+                }
+            }
         }
     }
     textarea#custom-404-text{

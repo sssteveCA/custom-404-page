@@ -97,20 +97,20 @@ HTML;
             $html .= <<<HTML
                 <label for="enable-custom-404-text" class="form-label ms-2">Utilizza un testo per la pagina 404</label>
             </div>
-            <div class="col-12 col-lg-6">
-                <label for="custom-404-text" class="form-label">Testo per la pagina 404</label>
-            </div>
-            <div class="col-12 col-lg-6">
 HTML;
         
         if($useText)
             $html .= <<<HTML
+            <div class="col-12 col-lg-6">
+                <label for="custom-404-text" class="form-label">Testo per la pagina 404</label>
+            </div>
+            <div class="col-12 col-lg-6">
                 <textarea id="custom-404-text" class="form-control" name="custom-404-text">{$text}</textarea>
 HTML;
         $html .= <<<HTML
             </div>
         </div>
-        <div class="row-mt-3">
+        <div class="row mt-3">
             <div class="col">
 HTML;
         if($showArticles)
