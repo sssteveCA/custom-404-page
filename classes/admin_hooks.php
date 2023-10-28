@@ -92,7 +92,7 @@ HTML;
             <div class="col-12 col-lg-6">
                 <input type="file" id="custom-404-image" class="form-control" name="custom-404-image" accept="image/*">
             </div>
-            <div class="col-12">
+            <div id="page-404-image-path" class="col-12">
                 Percorso immagine 404: {$imagePath}
             </div>
 HTML;

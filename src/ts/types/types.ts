@@ -26,3 +26,11 @@ export type AdminCustomPageUpdateSettingsType = {
     text: string;
     show_articles: boolean;
 }
+
+/**
+ * Type for MediaUploader class
+ */
+export type MediaUploaderType = {
+    button_uploader: JQuery<HTMLButtonElement>;
+    image_url: JQuery<HTMLDivElement>;
+}
