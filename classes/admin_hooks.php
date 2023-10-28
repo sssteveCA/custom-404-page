@@ -162,9 +162,9 @@ HTML;
             </div>
         </div>
         <div id="custom-404-button-div" class="row mt-3">
-            <div class="col text-center">
+            <div class="col-button-div col-12 text-center">
                 <button type="button" id="custom-404-button" class="btn btn-primary">SALVA MODIFICHE</button>
-                <div class="spinner-border" role="status">
+                <div id="custom-404-button-spinner" class="spinner-border d-none" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>

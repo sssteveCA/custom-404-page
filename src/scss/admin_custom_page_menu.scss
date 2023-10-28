@@ -8,12 +8,22 @@
                     font-weight: bolder;
                     font-size: 14px;
                 }
+                textarea#custom-404-text{
+                    height: 250px;
+                    resize: vertical;
+                }
+                &#custom-404-button-div{
+                    .col-button-div{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        #custom-404-button-spinner{
+                            margin-left: 15px;
+                        }
+                    }
+                }
             }
         }
-    }
-    textarea#custom-404-text{
-        height: 250px;
-        resize: vertical;
     }
 }
 
