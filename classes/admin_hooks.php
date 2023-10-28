@@ -3,6 +3,7 @@
 namespace CustomErrorPage\Classes;
 use CustomErrorPage\Traits\HooksTrait;
 use wpdb;
+use CustomErrorPage\Interfaces\Constants as C;
 
 /**
  * Function used in custom 404 page admin panel
@@ -181,7 +182,13 @@ HTML;
             $css_stylesheet = WP_PLUGIN_DIR.$css_stylesheet_relative;
             if(file_exists($css_stylesheet)){
                 $css_stylesheet_url = plugins_url().$css_stylesheet_relative;
-                wp_enqueue_style('Custom404PageMenu',$css_stylesheet_url,[],null);
+                wp_enqueue_style('Custom404PageMenuCSS',$css_stylesheet_url,[],null);
+            }
+            $js_script_relative = '/custom_404_page/dist/js/admin_custom_page_menu.js';
+            $js_script = WP_PLUGIN_DIR.$js_script_relative;
+            if(file_exists($js_script)){
+                $js_script_url = plugins_url().$js_script_relative;
+                wp_enqueue_script('Custom404PageMenuJS',$js_script_url,[],null,true);
             }
         }
         

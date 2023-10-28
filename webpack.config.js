@@ -9,7 +9,7 @@ const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 module.exports = {
     entry: {
         'css/admin_custom_page_menu': join(scssPath,'admin_custom_page_menu.scss'),
-        'js/admin_custom_page_menu': join(scssPath,'admin_custom_page_menu.ts')
+        'js/admin_custom_page_menu': join(tsPath,'admin_custom_page_menu.ts')
     },
     output: {
         path: resolve(__dirname,'dist'),

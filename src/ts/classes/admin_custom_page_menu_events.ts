@@ -1,5 +1,8 @@
 import { AdminCustomPageMenuEventsType, AdminCustomPageUpdateSettingsType } from "../types/types";
 
+/**
+ * This class add the listeners to provided HTML DOM elements
+ */
 export class AdminCustomPageMenuEvents{
 
     private _cb_enable_page: JQuery<HTMLInputElement>;
@@ -34,6 +37,10 @@ export class AdminCustomPageMenuEvents{
     get cb_show_articles(){ return this._cb_show_articles; }
     get bt_save(){ return this._bt_save; }
 
+    /**
+     * Add listeners to HTML elements
+     * @param onSaveButtonClick callback when settings save button has been clicked
+     */
     public addEvents(onSaveButtonClick: (acpust: AdminCustomPageUpdateSettingsType) => void){
         this.setEnablePageEvent();
         this.setEnableImageEvent();
