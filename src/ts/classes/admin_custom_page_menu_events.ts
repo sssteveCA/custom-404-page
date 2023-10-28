@@ -54,19 +54,11 @@ export class AdminCustomPageMenuEvents{
                 this._cb_enable_image.prop('disabled',false)
                 this._cb_enable_text.prop('disabled',false)
                 this._cb_show_articles.prop('disabled',false);
-                if(this._div_image_section.hasClass('d-none'))
-                    this._div_image_section.removeClass('d-none')
-                if(this._div_text_section.removeClass('d-none'))
-                    this._div_text_section.addClass('d-none')
             }
             else{
                 this._cb_enable_image.prop('disabled',true)
                 this._cb_enable_text.prop('disabled',true)
                 this._cb_show_articles.prop('disabled',true);
-                if(!this._div_image_section.hasClass('d-none'))
-                    this._div_image_section.addClass('d-none')
-                if(!this._div_text_section.hasClass('d-none'))
-                    this._div_text_section.addClass('d-none')
             }
         })
     }
@@ -76,8 +68,9 @@ export class AdminCustomPageMenuEvents{
             if(this._cb_enable_image.is(':checked')){
                 if(this._div_image_section.hasClass('d-none'))
                     this._div_image_section.removeClass('d-none')
-                else
-                    if(!this._div_image_section.hasClass('d-none'))
+            }
+            else{
+                if(!this._div_image_section.hasClass('d-none'))
                         this._div_image_section.addClass('d-none')
             }
         })
@@ -88,9 +81,10 @@ export class AdminCustomPageMenuEvents{
             if(this._cb_enable_text.is(':checked')){
                 if(this._div_text_section.hasClass('d-none'))
                     this._div_text_section.removeClass('d-none')
-                else
-                    if(!this._div_text_section.hasClass('d-none'))
-                        this._div_text_section.addClass('d-none')
+            }
+            else{
+                if(!this._div_text_section.hasClass('d-none'))
+                    this._div_text_section.addClass('d-none')
             }
         })
     }
