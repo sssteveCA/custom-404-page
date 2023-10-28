@@ -5,21 +5,22 @@ import { MediaUploaderType } from "../types/types";
  */
 export class MediaUploader{
     private _input_file: JQuery<HTMLInputElement>;
-    private _image_url: JQuery<HTMLDivElement>;
+    private _image_url_div: JQuery<HTMLDivElement>;
     private _media_uploader_ref: any;
 
     constructor(data: MediaUploaderType){
         this._input_file = data.input_file;
-        this._image_url = data.image_url;
+        this._image_url_div = data.image_url_div;
+        this.mediaUploaderOpen()
     }
 
     get input_file(){ return this._input_file; }
-    get image_url(){ return this._image_url; }
+    get image_url_div(){ return this._image_url_div; }
 
     /**
      * Open the Worpdress Media Upload on button click if exists
      */
-    public mediaUploaderOpen(){
+    private mediaUploaderOpen(){
         this._input_file.on('click',(e)=>{
             e.preventDefault();
             if(this._media_uploader_ref)
@@ -34,7 +35,7 @@ export class MediaUploader{
                 })
                 this._media_uploader_ref.on('select',()=>{
                     const attachment = this._media_uploader_ref.state().get('selection').first().toJSON()
-                    this._image_url.val("Percorso immagine: "+attachment.url);
+                    this._image_url_div.val("Percorso immagine: "+attachment.url);
                 })
                 this._media_uploader_ref.open()
             }
