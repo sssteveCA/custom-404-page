@@ -45,11 +45,11 @@ class AdminHooks{
 HTML;
             if($enabledCustomPage)
                 $html .= <<<HTML
-                <input type="checkbox" id="enable-custom-404" class="form-check-input" name="enable-custom-404" checked>
+                <input type="checkbox" id="enable-custom-404" class="form-check-input" name="enable-custom-404" value="true" checked>
 HTML;
             else
             $html .= <<<HTML
-                <input type="checkbox" id="enable-custom-404" class="form-check-input" name="enable-custom-404">
+                <input type="checkbox" id="enable-custom-404" class="form-check-input" name="enable-custom-404" value="true">
 HTML;
             $html .= <<<HTML
                 <label for="enable-custom-404" class="form-label ms-2">Utilizza la pagina 404</label>
@@ -61,16 +61,16 @@ HTML;
             if($enabledCustomPage){
                 if($useImage)
                 $html .= <<<HTML
-                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" checked>
+                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" value="true" checked>
 HTML;
                 else
                     $html .= <<<HTML
-                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image">
+                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" value="true">
 HTML;
             }
             else
                 $html .= <<<HTML
-                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" disabled>
+                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" value="true" disabled>
 HTML;
                 $html .= <<<HTML
                 <label for="enable-custom-404-image" class="form-label ms-2">Utilizza un'immagine per la pagina 404</label>
@@ -105,16 +105,16 @@ HTML;
             if($enabledCustomPage){
                 if($useText)
                     $html .= <<<HTML
-                <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" checked>
+                <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" value="true" checked>
 HTML;
                 else
                     $html .= <<<HTML
-                <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text">
+                <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" value="true">
 HTML;
             }
             else
                 $html .= <<<HTML
-            <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" disabled>
+            <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" value="true" disabled>
 HTML;
             $html .= <<<HTML
                 <label for="enable-custom-404-text" class="form-label ms-2">Utilizza un testo per la pagina 404</label>
@@ -150,12 +150,12 @@ HTML;
 HTML;
         else
             $html .= <<<HTML
-                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles">
+                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="true">
 HTML;
         }
         else
             $html .= <<<HTML
-                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" disabled>
+                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="true" disabled>
 HTML;
         $html .= <<<HTML
                 <label for="show-random-articles" class="form-label ms-2">Mostra articoli</label>
