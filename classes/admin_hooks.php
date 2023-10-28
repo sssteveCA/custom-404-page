@@ -93,11 +93,13 @@ HTML;
                 <input type="file" id="custom-404-image" class="form-control" name="custom-404-image" accept="image/*">
             </div>
             <div id="page-404-image-path" class="col-12">
-                Percorso immagine 404: {$imagePath}
-            </div>
 HTML;
-            
+            if($imagePath)
+                $html .= <<<HTML
+                Percorso immagine 404: {$imagePath}
+HTML;       
             $html .= <<<HTML
+            </div>
         </div>
         <div class="row mt-3">
             <div class="col-12">
@@ -184,6 +186,7 @@ HTML;
      */
     public function enqueue_admin_files(){
         if($_REQUEST['page'] == 'custom-404-page'){
+            wp_enqueue_media();
             $css_stylesheet_relative = '/custom_404_page/dist/css/admin_custom_page_menu.css';
             $css_stylesheet = WP_PLUGIN_DIR.$css_stylesheet_relative;
             if(file_exists($css_stylesheet)){

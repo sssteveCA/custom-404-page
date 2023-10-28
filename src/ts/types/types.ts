@@ -31,6 +31,6 @@ export type AdminCustomPageUpdateSettingsType = {
  * Type for MediaUploader class
  */
 export type MediaUploaderType = {
-    button_uploader: JQuery<HTMLButtonElement>;
+    input_file: JQuery<HTMLInputElement>;
     image_url: JQuery<HTMLDivElement>;
 }
