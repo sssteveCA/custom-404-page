@@ -13,14 +13,18 @@
                     resize: vertical;
                 }
                 &#custom-404-button-div{
-                    .col-button-div{
+                    .custom-404-col-button-div{
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        #custom-404-button-spinner{
+                        div#custom-404-button-spinner{
                             margin-left: 15px;
                         }
                     }
+                }
+                div#custom-404-us-message{
+                    font-size: 22px;
+                    font-weight: bolder;
                 }
             }
         }

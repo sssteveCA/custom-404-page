@@ -65,7 +65,7 @@ export class AdminCustomPageUpdateSettings{
             this._errno = AdminCustomPageUpdateSettings.ERR_FETCH;
             response = {
                 done: false,
-                msg: this.error
+                message: this.error
             }
         }
         return response;
