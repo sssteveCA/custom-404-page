@@ -13,7 +13,6 @@ use CustomErrorPage\Classes\AdminHooks;
  * Text Domain: custom_404_page
  */
 
-require_once __DIR__.'/interfaces/constants.php';
 require_once __DIR__.'/vendor/autoload.php';
 
 $wpdb = $GLOBALS['wpdb'];
