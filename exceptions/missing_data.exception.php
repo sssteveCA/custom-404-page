@@ -5,9 +5,9 @@ namespace CustomErrorPage\Exceptions;
 use Exception;
 
 /**
- * Thrown when the provided data are invalid
+ * Thrown when the mandatory data are missed
  */
-class InvalidDataException extends Exception{
+class MissingDataException extends Exception{
 
     public function __construct($message="", $val = 0, Exception $old = null) {
         parent::__construct($message, $val, $old);
