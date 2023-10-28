@@ -4,7 +4,7 @@
             "CustomErrorPage\\Interfaces\\": "interfaces/"
         },
         "classmap": [
-            "classes/", "interfaces/","traits/"
+            "classes/", "exceptions/", "interfaces/","traits/"
         ]
     }
 }
