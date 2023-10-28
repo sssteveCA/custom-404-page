@@ -1,3 +1,4 @@
+import { Constants } from "../namespace/constants";
 import { AdminCustomPageUpdateSettingsType } from "../types/types";
 
 /**
@@ -14,7 +15,7 @@ export class AdminCustomPageUpdateSettings{
     private _errno: number = 0;
     private _error: string|null = null;
 
-    private static UPDATESETTINGS_URL:string = "";
+    private static UPDATESETTINGS_URL:string = Constants.SCRIPT_DIR+'/update_settings.php';
 
     public static ERR_FETCH: number = 1;
     private static ERR_FETCH_MSG:string = "Errore durante l'esecuzione della richiesta.";

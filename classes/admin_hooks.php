@@ -161,9 +161,12 @@ HTML;
                 <label for="show-random-articles" class="form-label ms-2">Mostra articoli</label>
             </div>
         </div>
-        <div class="row mt-3">
+        <div id="custom-404-button-div" class="row mt-3">
             <div class="col text-center">
                 <button type="button" id="custom-404-button" class="btn btn-primary">SALVA MODIFICHE</button>
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </div>
     </div>
