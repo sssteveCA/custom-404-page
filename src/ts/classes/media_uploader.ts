@@ -35,7 +35,7 @@ export class MediaUploader{
                 })
                 this._media_uploader_ref.on('select',()=>{
                     const attachment = this._media_uploader_ref.state().get('selection').first().toJSON()
-                    this._image_url_div.val("Percorso immagine: "+attachment.url);
+                    this._image_url_div.html("Percorso immagine: "+attachment.url);
                 })
                 this._media_uploader_ref.open()
             }

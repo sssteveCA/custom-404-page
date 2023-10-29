@@ -33,6 +33,7 @@ CREATE TABLE {$table_name} (
 SQL;
         require_once ABSPATH."/wp-admin/includes/upgrade.php";
         dbDelta( $query );
+        $this->insertDefaultData();
     }
 
     /**
@@ -44,6 +45,22 @@ SQL;
 DROP TABLE IF EXISTS {$table_name};
 SQL;
         $this->wpdb->query($query);
+    }
+
+    /**
+     * Insert the default data when the table is created
+     */
+    private function insertDefaultData(){
+        $table_name = $this->wpdb->prefix.self::TABLE_NAME;
+        $this->wpdb->get_results("SELECT * FROM {$table_name} LIMIT 1");
+        if($this->wpdb->num_rows < 1){
+            $this->wpdb->insert($table_name,['enable_custom_404_page' => false],['%s']);
+            $this->wpdb->insert($table_name,['use_image' => false],['%s']);
+            $this->wpdb->insert($table_name,['image_path' => ''],['%s']);
+            $this->wpdb->insert($table_name,['use_text' => false],['%s']);
+            $this->wpdb->insert($table_name,['custom_404_page_text' => ''],['%s']);
+            $this->wpdb->insert($table_name,['show_articles' => false],['%s']);
+        }
     }
 
 }
