@@ -13,18 +13,20 @@ class ActivationDeactivation{
 
     private \wpdb $wpdb;
 
+    private string $table_name;
+
     public function __construct(\wpdb $wpdb){
         $this->wpdb = $wpdb;
+        $this->table_name = $this->wpdb->prefix.self::TABLE_NAME;
     }
 
     /**
      * Executed while plugin activation
      */
     public function activate(){
-        $table_name = $this->wpdb->prefix .self::TABLE_NAME;
         $charset_collate = $this->wpdb->get_charset_collate();
         $query = <<<SQL
-CREATE TABLE {$table_name} (
+CREATE TABLE {$this->table_name} (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) UNIQUE,
     value VARCHAR(255)
@@ -40,9 +42,8 @@ SQL;
      * Executed while plugin uninstallation
      */
     public function uninstall(){
-        $table_name = $this->wpdb->prefix .self::TABLE_NAME;
         $query = <<<SQL
-DROP TABLE IF EXISTS {$table_name};
+DROP TABLE IF EXISTS {$this->table_name};
 SQL;
         $this->wpdb->query($query);
     }
@@ -51,15 +52,14 @@ SQL;
      * Insert the default data when the table is created
      */
     private function insertDefaultData(){
-        $table_name = $this->wpdb->prefix.self::TABLE_NAME;
-        $this->wpdb->get_results("SELECT * FROM {$table_name} LIMIT 1");
+        $this->wpdb->get_results("SELECT * FROM {$this->table_name} LIMIT 1");
         if($this->wpdb->num_rows < 1){
-            $this->wpdb->insert($table_name,['enable_custom_404_page' => false],['%s']);
-            $this->wpdb->insert($table_name,['use_image' => false],['%s']);
-            $this->wpdb->insert($table_name,['image_path' => ''],['%s']);
-            $this->wpdb->insert($table_name,['use_text' => false],['%s']);
-            $this->wpdb->insert($table_name,['custom_404_page_text' => ''],['%s']);
-            $this->wpdb->insert($table_name,['show_articles' => false],['%s']);
+            $this->wpdb->insert($this->table_name,['name' => 'enable_custom_404_page', 'value' => false],['%s','%s']);
+            $this->wpdb->insert($this->table_name,['name' => 'use_image', 'value' => false],['%s','%s']);
+            $this->wpdb->insert($this->table_name,['name' => 'image_path', 'value' => ''],['%s','%s']);
+            $this->wpdb->insert($this->table_name,['name' => 'use_text', 'value' => false],['%s','%s']);
+            $this->wpdb->insert($this->table_name,['name' => 'custom_404_page_text', 'value' => ''],['%s','%s']);
+            $this->wpdb->insert($this->table_name,['name' => 'show_articles', 'value' => false],['%s','%s']);
         }
     }
 

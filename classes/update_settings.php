@@ -4,12 +4,15 @@ namespace CustomErrorPage\Classes;
 
 use CustomErrorPage\Exceptions\InvalidDataException;
 use CustomErrorPage\Exceptions\MissingDataException;
+use CustomErrorPage\Exceptions\SqlErrorException;
 use wpdb;
 
 /**
  * Update the custom 404 page menu settings
  */
 class UpdateSettings{
+
+    const TABLE_NAME = "custom_404_page_table";
 
     private wpdb $wpdb;
     private string $table_name;
@@ -44,10 +47,13 @@ class UpdateSettings{
      */
     private bool $show_articles;
 
-    public function __construct(array $data)
+    public function __construct(wpdb $wpdb,array $data)
     {
+        $this->wpdb = $wpdb;
+        $this->table_name = $this->wpdb->prefix.self::TABLE_NAME;
         $this->checkData($data);
         $this->assignData($data);
+        $this->updateTable();
     }
 
     /**
@@ -87,6 +93,25 @@ class UpdateSettings{
         $this->use_text = $data['use_text'];
         $this->custom_404_page_text = $data['custom_404_page_text'];
         $this->show_articles = $data['show_articles'];
+    }
+
+    /**
+     * Update the admin custom 404 page sql table with new settings
+     * @throws \CustomErrorPage\Exceptions\SqlErrorException
+     */
+    private function updateTable(){
+        if($this->wpdb->update($this->table_name,['value' => $this->enable_custom_404_page],['name' => 'enable_custom_404_page'],['%s'],['%s']) === false)
+            throw new SqlErrorException;
+        if($this->wpdb->update($this->table_name,['value' => $this->use_image],['name' => 'use_image'],['%s']['%s']) === false)
+            throw new SqlErrorException;
+        if($this->wpdb->update($this->table_name,['value' => $this->image_path],['name' => 'image_path'],['%s'],['%s']) === false)
+            throw new SqlErrorException;
+        if($this->wpdb->update($this->table_name,['value' => $this->use_text],['name' => 'use_text'],['%s'],['%s']) === false)
+            throw new SqlErrorException;
+        if($this->wpdb->update($this->table_name,['value' => $this->custom_404_page_text],['name' => 'custom_404_page_text'],['%s'],['%s']) === false)
+            throw new SqlErrorException;
+        if($this->wpdb->update($this->table_name,['value' => $this->show_articles],['name' => 'show_articles'], ['%s'],['%s']) === false)
+            throw new SqlErrorException;
     }
 
 }
