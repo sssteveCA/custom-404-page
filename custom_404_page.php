@@ -17,15 +17,15 @@ require_once __DIR__.'/vendor/autoload.php';
 
 $wpdb = $GLOBALS['wpdb'];
 $ad = new ActivationDeactivation($wpdb);
-$acf = new AdminHooks($wpdb);
+$ah = new AdminHooks($wpdb);
 //$cf = new \CustomErrorPage\Classes\WpHooks();
 
 register_activation_hook(__FILE__,[$ad,'activate']);
 register_uninstall_hook(__FILE__,[$ad,'uninstall']);
 
-add_action('admin_enqueue_scripts',[$acf,'enqueue_bootstrap_scripts'],11);
-add_action('admin_enqueue_scripts',[$acf,'enqueue_admin_files']);
-add_action('admin_menu',[$acf,'custom_404_page_menu']);
+add_action('admin_enqueue_scripts',[$ah,'enqueue_bootstrap_scripts'],11);
+add_action('admin_enqueue_scripts',[$ah,'enqueue_admin_files']);
+add_action('admin_menu',[$ah,'custom_404_page_menu']);
 /* add_action('template_redirect',[$cf,'custom_404_page']);
 add_action('wp_enqueue_scripts',[$cf,'enqueue_bootstrap_scripts'],11); */
 ?>
