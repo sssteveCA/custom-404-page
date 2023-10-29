@@ -6,12 +6,12 @@ import { AdminCustomPageUpdateSettingsType } from "../types/types";
  */
 export class AdminCustomPageUpdateSettings{
 
-    private _enable_page: boolean;
-    private _enable_image: boolean;
+    private _enable_page: string;
+    private _enable_image: string;
     private _image_path: string;
-    private _enable_text: boolean;
+    private _enable_text: string;
     private _text: string;
-    private _show_articles: boolean;
+    private _show_articles: string;
     private _errno: number = 0;
     private _error: string|null = null;
 

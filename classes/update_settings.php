@@ -20,12 +20,12 @@ class UpdateSettings{
     /**
      * If the custom 404 page must be shown on 404 errors
      */
-    private bool $enable_custom_404_page;
+    private string $enable_custom_404_page;
 
     /**
      * If the page has an image
      */
-    private bool $use_image;
+    private string $use_image;
 
     /**
      * The image for the 404 page (only if use_image is true)
@@ -35,7 +35,7 @@ class UpdateSettings{
     /**
      * If the page has custom text
      */
-    private bool $use_text;
+    private string $use_text;
 
     /**
      * The text for the 404 page (only if use_text is true)
@@ -45,7 +45,7 @@ class UpdateSettings{
     /**
      * If the 404 page must show some random articles
      */
-    private bool $show_articles;
+    private string $show_articles;
 
     public function __construct(wpdb $wpdb,array $data)
     {
@@ -66,7 +66,8 @@ class UpdateSettings{
         if(isset($data['enable_custom_404_page'],$data['use_image'],$data['image_path'],$data['use_text'],$data['custom_404_page_text'],$data['show_articles'])){
             if(in_array($data['enable_custom_404_page'],[true,false]) && in_array($data['use_image'],[true,false]) && in_array($data['use_text'],[true,false]) && in_array($data['show_articles'],[true,false])){
                 if($data['use_image'] == true){
-                    if(!filter_var($data['image_path'],FILTER_VALIDATE_URL))
+                    $url_pattern = '/^(https?:\/\/)?([a-z\d.-_]+)\.([a-z]{2,6})(\/([^\s]*)?)?$/i';
+                    if(!preg_match($url_pattern,$data['image_path']))
                         throw new InvalidDataException;
                 }
                 if($data['use_text'] == true){

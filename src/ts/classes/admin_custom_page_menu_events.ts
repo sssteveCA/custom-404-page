@@ -100,12 +100,12 @@ export class AdminCustomPageMenuEvents{
                 file = native_input.files[0] as File;
             }
             const acpustType: AdminCustomPageUpdateSettingsType = {
-                enable_page: this._cb_enable_page.val() as unknown as boolean,
-                enable_image: this._cb_enable_image.val() as unknown as boolean,
+                enable_page: this._cb_enable_page.val() as string,
+                enable_image: this._cb_enable_image.val() as string,
                 image_path: this._input_image_path.val() as string,
-                enable_text: this._cb_enable_text.val() as unknown as boolean,
+                enable_text: this._cb_enable_text.val() as string,
                 text: this._ta_text.val() as string,
-                show_articles: this._cb_show_articles.val() as unknown as boolean
+                show_articles: this._cb_show_articles.val() as string
 
             }
             callback(acpustType);

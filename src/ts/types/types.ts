@@ -20,12 +20,12 @@ export type AdminCustomPageMenuEventsType = {
  * Type for AdminCustomPageUpdateSettings class
  */
 export type AdminCustomPageUpdateSettingsType = {
-    enable_page: boolean;
-    enable_image: boolean;
+    enable_page: string;
+    enable_image: string;
     image_path: string;
-    enable_text: boolean;
+    enable_text: string;
     text: string;
-    show_articles: boolean;
+    show_articles: string;
 }
 
 /**
