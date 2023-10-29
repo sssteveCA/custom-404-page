@@ -66,12 +66,11 @@ class UpdateSettings{
         if(isset($data['enable_custom_404_page'],$data['use_image'],$data['image_path'],$data['use_text'],$data['custom_404_page_text'],$data['show_articles'])){
             if(in_array($data['enable_custom_404_page'],[true,false]) && in_array($data['use_image'],[true,false]) && in_array($data['use_text'],[true,false]) && in_array($data['show_articles'],[true,false])){
                 if($data['use_image'] == true){
-                    $path_regex = '/^(https?:\/\/[a-zA-Z0-9_\-\.]+)+\/?$/';
-                    if(!preg_match($path_regex,$data['image_path']))
+                    if(!filter_var($data['image_path'],FILTER_VALIDATE_URL))
                         throw new InvalidDataException;
                 }
                 if($data['use_text'] == true){
-                    if(empty($data['custom_404_Page_text']))
+                    if(empty($data['custom_404_page_text']))
                         throw new InvalidDataException;
                 }
                 return;

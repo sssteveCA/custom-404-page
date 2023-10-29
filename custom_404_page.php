@@ -20,8 +20,8 @@ $ad = new ActivationDeactivation($wpdb);
 $acf = new AdminHooks($wpdb);
 //$cf = new \CustomErrorPage\Classes\WpHooks();
 
-/* register_activation_hook(__FILE__,[$ad,'activate']);
-register_uninstall_hook(__FILE__,[$ad,'uninstall']); */
+register_activation_hook(__FILE__,[$ad,'activate']);
+register_uninstall_hook(__FILE__,[$ad,'uninstall']);
 
 add_action('admin_enqueue_scripts',[$acf,'enqueue_bootstrap_scripts'],11);
 add_action('admin_enqueue_scripts',[$acf,'enqueue_admin_files']);
