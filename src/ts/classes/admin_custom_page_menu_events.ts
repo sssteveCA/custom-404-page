@@ -9,6 +9,7 @@ export class AdminCustomPageMenuEvents{
     private _cb_enable_image: JQuery<HTMLInputElement>;
     private _div_image_section: JQuery<HTMLDivElement>;
     private _input_file_image: JQuery<HTMLInputElement>;
+    private _input_image_path: JQuery<HTMLInputElement>;
     private _cb_enable_text: JQuery<HTMLInputElement>;
     private _div_text_section: JQuery<HTMLDivElement>;
     private _ta_text: JQuery<HTMLTextAreaElement>;
@@ -19,6 +20,7 @@ export class AdminCustomPageMenuEvents{
         this._cb_enable_page = data.cb_enable_page;
         this._cb_enable_image = data.cb_enable_image;
         this._div_image_section = data.div_image_section;
+        this._input_image_path = data.input_image_path;
         this._input_file_image = data.input_file_image;
         this._cb_enable_text = data.cb_enable_text;
         this._div_text_section = data.div_text_section;
@@ -31,6 +33,7 @@ export class AdminCustomPageMenuEvents{
     get cb_enable_image(){ return this._cb_enable_image; }
     get div_image_section(){ return this._div_image_section; }
     get input_file_image(){ return this._input_file_image; }
+    get input_image_path(){ return this._input_image_path; }
     get cb_enable_text(){ return this._cb_enable_text; }
     get div_text_section(){ return this._div_text_section; }
     get ta_text(){ return this._ta_text; }
@@ -99,7 +102,7 @@ export class AdminCustomPageMenuEvents{
             const acpustType: AdminCustomPageUpdateSettingsType = {
                 enable_page: this._cb_enable_page.val() as unknown as boolean,
                 enable_image: this._cb_enable_image.val() as unknown as boolean,
-                file_image: file as File,
+                image_path: this._input_image_path.val() as string,
                 enable_text: this._cb_enable_text.val() as unknown as boolean,
                 text: this._ta_text.val() as string,
                 show_articles: this._cb_show_articles.val() as unknown as boolean

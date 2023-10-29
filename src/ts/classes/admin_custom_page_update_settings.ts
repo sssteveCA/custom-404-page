@@ -8,14 +8,14 @@ export class AdminCustomPageUpdateSettings{
 
     private _enable_page: boolean;
     private _enable_image: boolean;
-    private _file_image: File;
+    private _image_path: string;
     private _enable_text: boolean;
     private _text: string;
     private _show_articles: boolean;
     private _errno: number = 0;
     private _error: string|null = null;
 
-    private static UPDATESETTINGS_URL:string = Constants.SCRIPT_DIR+'/update_settings.php';
+    private static UPDATESETTINGS_URL:string = Constants.SCRIPT_DIR+'/update_settings_script.php';
 
     public static ERR_FETCH: number = 1;
     private static ERR_FETCH_MSG:string = "Errore durante l'esecuzione della richiesta.";
@@ -24,7 +24,7 @@ export class AdminCustomPageUpdateSettings{
     constructor(data: AdminCustomPageUpdateSettingsType){
         this._enable_page = data.enable_page;
         this._enable_image = data.enable_image;
-        this._file_image = data.file_image;
+        this._image_path = data.image_path;
         this._enable_text = data.enable_text;
         this._text = data.text;
         this._show_articles = data.show_articles;
@@ -32,7 +32,7 @@ export class AdminCustomPageUpdateSettings{
 
     get enable_page(){ return this._enable_page; }
     get enable_image(){ return this._enable_image; }
-    get file_image(){ return this._file_image; }
+    get image_path(){ return this._image_path; }
     get enable_text(){ return this._enable_text; }
     get text(){ return this._text; }
     get show_articles(){ return this._show_articles; }
@@ -73,15 +73,21 @@ export class AdminCustomPageUpdateSettings{
 
     private async updateSettingsPromise(): Promise<string>{
         return await new Promise<string>((resolve, reject) => {
-            const fa: FormData = new FormData();
-            fa.append('enable_page',this._enable_page as unknown as string);
-            fa.append('enable_image',this._enable_image as unknown as string);
-            fa.append('file_image',this._file_image);
-            fa.append('enable_text',this._enable_text as unknown as string);
-            fa.append('show_articles',this._show_articles as unknown as string);
+            const data: object = {
+                'enable_page': this._enable_page,
+                'enable_image': this._enable_image,
+                'image_path': this._image_path,
+                'enable_text': this._enable_text,
+                'text': this._text,
+                'show_articles': this._show_articles
+            }
             fetch(AdminCustomPageUpdateSettings.UPDATESETTINGS_URL,{
                 method: 'POST',
-                body: fa,
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
             }).then(res => resolve(res.text())).catch(err => reject(err))
         })
     }

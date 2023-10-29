@@ -79,11 +79,11 @@ HTML;
 HTML;
             if($enabledCustomPage && $useImage)
                     $html .= <<<HTML
-        <div id="page-404-image-section" class="row mt-1">
+        <div id="custom-404-image-section" class="row mt-1">
 HTML;
             else
                 $html .= <<<HTML
-        <div id="page-404-image-section" class="row mt-1 d-none">
+        <div id="custom-404-image-section" class="row mt-1 d-none">
 HTML;
             $html .= <<<HTML
             <div class="col-12 col-lg-6">
@@ -91,8 +91,9 @@ HTML;
             </div>
             <div class="col-12 col-lg-6">
                 <input type="file" id="custom-404-image" class="form-control" name="custom-404-image" accept="image/*">
+                <input type="hidden" id="custom-404-image-path" name="image_path" value="{$imagePath}">
             </div>
-            <div id="page-404-image-path" class="col-12">
+            <div id="custom-404-image-path-div" class="col-12">
 HTML;
             if($imagePath)
                 $html .= <<<HTML
