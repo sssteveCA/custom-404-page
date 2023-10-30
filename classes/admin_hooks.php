@@ -32,7 +32,7 @@ class AdminHooks{
             $useText = $peo->getUseText();
             $text = $peo->getCustom404PageText() ? $peo->getCustom404PageText() : "";
             $showArticles = $peo->getShowArticles();
-            include_once '../templates/custom_404_menu_page.php';
+            include __DIR__.'/../templates/custom_404_menu_page.php';
         });
     }
 

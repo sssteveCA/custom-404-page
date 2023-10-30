@@ -39,11 +39,11 @@
             </div>
             <div class="col-12 col-lg-6">
                 <input type="file" id="custom-404-image" class="form-control" name="custom-404-image" accept="image/*">
-                <input type="hidden" id="custom-404-image-path" name="image_path" value="<? $imagePath ?>">
+                <input type="hidden" id="custom-404-image-path" name="image_path" value="<?php echo esc_url($imagePath); ?>">
             </div>
             <div id="custom-404-image-path-div" class="col-12">
             <?php if($imagePath): ?>
-                Percorso immagine 404: <? $imagePath ?>
+                Percorso immagine 404: <?php echo esc_url($imagePath); ?>
             <?php endif; ?>       
             </div>
         </div>
@@ -70,7 +70,7 @@
                 <label for="custom-404-text" class="form-label">Testo per la pagina 404</label>
             </div>
             <div class="col-12 col-lg-6">
-                <textarea id="custom-404-text" class="form-control" name="custom-404-text"><? $text ?></textarea>
+                <textarea id="custom-404-text" class="form-control" name="custom-404-text"><?php echo esc_html($text); ?></textarea>
             </div>
         </div>
         <div class="row mt-3">
