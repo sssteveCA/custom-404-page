@@ -24,7 +24,7 @@ class PageErrorOptions{
     /**
      * The custom 404 page header title
      */
-    private string $custom_404_page_title;
+    private string $title;
 
     /**
      * If the page has an image
@@ -44,7 +44,7 @@ class PageErrorOptions{
     /**
      * The text for the 404 page (only if use_text is true)
      */
-    private ?string $custom_404_page_text;
+    private ?string $text;
 
     /**
      * If the 404 page must show some random articles
@@ -58,11 +58,11 @@ class PageErrorOptions{
     }
 
     public function getEnableCustom404Page(): string{ return $this->enable_custom_404_page;}
-    public function getCustom404PageTitle(): string{ return $this->custom_404_page_title;}
+    public function getTitle(): string{ return $this->title;}
     public function getUseImage(): string{return $this->use_image;}
     public function getImagePath(): string{return $this->image_path;}
     public function getUseText(): string{return $this->use_text;}
-    public function getCustom404PageText(): string{ return $this->custom_404_page_text;}
+    public function getText(): string{ return $this->text;}
     public function getShowArticles(): string{return $this->show_articles;}
 
     /**
@@ -75,10 +75,11 @@ SQL;
         $results = $this->wpdb->get_results($sql,ARRAY_A);
         $results_kv = $this->changeResultsArray($results);
         $this->enable_custom_404_page = $results_kv['enable_custom_404_page'];
+        $this->title = $results_kv['title'];
         $this->use_image = $results_kv['use_image'];
         $this->image_path = $results_kv['image_path'];
         $this->use_text = $results_kv['use_text'];
-        $this->custom_404_page_text = $results_kv['custom_404_page_text'];
+        $this->text = $results_kv['text'];
         $this->show_articles = $results_kv['show_articles'];
     }
 

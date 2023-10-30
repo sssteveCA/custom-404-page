@@ -70,7 +70,7 @@
                 <label for="custom-404-text" class="form-label">Testo per la pagina 404</label>
             </div>
             <div class="col-12 col-lg-6">
-                <textarea id="custom-404-text" class="form-control" name="custom-404-text"><?php echo esc_html($custom404PageText); ?></textarea>
+                <textarea id="custom-404-text" class="form-control" name="custom-404-text"><?php echo esc_html($text); ?></textarea>
             </div>
         </div>
         <div class="row mt-3">

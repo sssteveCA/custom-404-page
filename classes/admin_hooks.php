@@ -30,7 +30,7 @@ class AdminHooks{
             $useImage = $peo->getUseImage();
             $imagePath = $peo->getImagePath() ? $peo->getImagePath() : "";
             $useText = $peo->getUseText();
-            $custom404PageText = $peo->getCustom404PageText() ? $peo->getCustom404PageText() : "";
+            $text = $peo->getText() ? $peo->getText() : "";
             $showArticles = $peo->getShowArticles();
             include __DIR__.'/../templates/custom_404_menu_page.php';
         });

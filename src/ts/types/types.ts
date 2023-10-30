@@ -24,7 +24,7 @@ export type AdminCustomPageUpdateSettingsType = {
     enable_image: string;
     image_path: string;
     enable_text: string;
-    custom_404_page_text: string;
+    text: string;
     show_articles: string;
 }
 

@@ -16,9 +16,9 @@
                             </div>
                         </div>
                         <?php endif; ?>
-                        <?php if($useText && !empty($custom404PageText)): ?>
+                        <?php if($useText && !empty($text)): ?>
                         <div class="row mt-3 gx-md-2 gx-lg-4">
-                            <div class="col-12"><?php echo esc_html($custom404PageText); ?></div>
+                            <div class="col-12"><?php echo esc_html($text); ?></div>
                         </div>
                         <?php endif; ?>
                         <?php if($showArticles): ?>

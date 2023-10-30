@@ -58,14 +58,16 @@ SQL;
         $found = $this->foundResultsRows($results);
         if(!$found['enable_custom_404_page'])
             $this->wpdb->insert($this->table_name,['name' => 'enable_custom_404_page', 'value' => 'false'],['%s','%s']);
+        if(!$found['title'])
+            $this->wpdb->insert($this->table_name,['name' => 'title', 'value' => ''],['%s','%s']);
         if(!$found['use_image'])
             $this->wpdb->insert($this->table_name,['name' => 'use_image', 'value' => 'false'],['%s','%s']);
         if(!$found['image_path'])
             $this->wpdb->insert($this->table_name,['name' => 'image_path', 'value' => ''],['%s','%s']);
         if(!$found['use_text'])
             $this->wpdb->insert($this->table_name,['name' => 'use_text', 'value' => 'false'],['%s','%s']);
-        if(!$found['custom_404_page_text'])
-            $this->wpdb->insert($this->table_name,['name' => 'custom_404_page_text', 'value' => ''],['%s','%s']);
+        if(!$found['text'])
+            $this->wpdb->insert($this->table_name,['name' => 'text', 'value' => ''],['%s','%s']);
         if(!$found['show_articles'])
             $this->wpdb->insert($this->table_name,['name' => 'show_articles', 'value' => 'false'],['%s','%s']);
         

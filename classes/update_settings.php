@@ -23,6 +23,11 @@ class UpdateSettings{
     private string $enable_custom_404_page;
 
     /**
+     * The custom 404 page header title
+     */
+    private string $title;
+
+    /**
      * If the page has an image
      */
     private string $use_image;
@@ -40,7 +45,7 @@ class UpdateSettings{
     /**
      * The text for the 404 page (only if use_text is true)
      */
-    private ?string $custom_404_page_text;
+    private ?string $text;
 
     /**
      * If the 404 page must show some random articles
@@ -63,7 +68,7 @@ class UpdateSettings{
      * @throws \CustomErrorPage\Exceptions\InvalidDataException
      */
     private function checkData(array $data){
-        if(isset($data['enable_custom_404_page'],$data['use_image'],$data['image_path'],$data['use_text'],$data['custom_404_page_text'],$data['show_articles'])){
+        if(isset($data['enable_custom_404_page'],$data['use_image'],$data['image_path'],$data['use_text'],$data['text'],$data['show_articles'])){
             if(in_array($data['enable_custom_404_page'],[true,false]) && in_array($data['use_image'],[true,false]) && in_array($data['use_text'],[true,false]) && in_array($data['show_articles'],[true,false])){
                 if($data['use_image'] == true){
                     $url_pattern = '/^(https?:\/\/)?([a-z\d.-_]+)\.([a-z]{2,6})(\/([^\s]*)?)?$/i';
@@ -71,7 +76,7 @@ class UpdateSettings{
                         throw new InvalidDataException;
                 }
                 if($data['use_text'] == true){
-                    if(empty($data['custom_404_page_text']))
+                    if(empty($data['text']))
                         throw new InvalidDataException;
                 }
                 return;
@@ -88,10 +93,11 @@ class UpdateSettings{
      */
     private function assignData(array $data){
         $this->enable_custom_404_page = $data['enable_custom_404_page'];
+        $this->title = $data['title'];
         $this->use_image = $data['use_image'];
         $this->image_path = $data['image_path'];
         $this->use_text = $data['use_text'];
-        $this->custom_404_page_text = $data['custom_404_page_text'];
+        $this->text = $data['text'];
         $this->show_articles = $data['show_articles'];
     }
 
@@ -102,13 +108,15 @@ class UpdateSettings{
     private function updateTable(){
         if($this->wpdb->update($this->table_name,['value' => $this->enable_custom_404_page],['name' => 'enable_custom_404_page'],['%s'],['%s']) === false)
             throw new SqlErrorException;
+        if($this->wpdb->update($this->table_name,['value' => $this->title],['name' => 'title'],['%s'],['%s']) === false)
+            throw new SqlErrorException;
         if($this->wpdb->update($this->table_name,['value' => $this->use_image],['name' => 'use_image'],['%s']['%s']) === false)
             throw new SqlErrorException;
         if($this->wpdb->update($this->table_name,['value' => $this->image_path],['name' => 'image_path'],['%s'],['%s']) === false)
             throw new SqlErrorException;
         if($this->wpdb->update($this->table_name,['value' => $this->use_text],['name' => 'use_text'],['%s'],['%s']) === false)
             throw new SqlErrorException;
-        if($this->wpdb->update($this->table_name,['value' => $this->custom_404_page_text],['name' => 'custom_404_page_text'],['%s'],['%s']) === false)
+        if($this->wpdb->update($this->table_name,['value' => $this->text],['name' => 'text'],['%s'],['%s']) === false)
             throw new SqlErrorException;
         if($this->wpdb->update($this->table_name,['value' => $this->show_articles],['name' => 'show_articles'], ['%s'],['%s']) === false)
             throw new SqlErrorException;

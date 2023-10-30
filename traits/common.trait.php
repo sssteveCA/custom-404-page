@@ -14,12 +14,13 @@ trait CommonTrait{
      */
     private function changeResultsArray(array $results): array{
         $results_kv = [
-            'enable_custom_404_page' => "false",
-            'use_image' => "false",
-            'image_path' => "",
-            'use_text' => "false",
-            'custom_404_page_text' => "",
-            'show_articles' => "false",
+            'enable_custom_404_page' => 'false',
+            'title' => '',
+            'use_image' => 'false',
+            'image_path' => '',
+            'use_text' => 'false',
+            'text' => '',
+            'show_articles' => 'false',
         ];
         array_walk($results,function($value,$key) use($results_kv){
             $results_kv[$value['name']] = $value['value'];
@@ -35,10 +36,11 @@ trait CommonTrait{
     private function foundResultsRows(array $results): array{
         $found = [
             'enable_custom_404_page' => false,
+            'title' => false,
             'use_image' => false,
             'image_path' => false,
             'use_text' => false,
-            'custom_404_page_text' => false,
+            'text' => false,
             'show_articles' => false,
         ];
         array_walk($results,function($value,$key){
