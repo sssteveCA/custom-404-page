@@ -49,11 +49,15 @@ export class AdminCustomPageMenuEvents{
      */
     public addEvents(onSaveButtonClick: (acpust: AdminCustomPageUpdateSettingsType) => void){
         this.setEnablePageEvent();
+        this.setEnableTitleEvent();
         this.setEnableImageEvent();
         this.setEnableTextEvent();
         this.setSaveButtonEvent(onSaveButtonClick)
     }
 
+    /**
+     * Set the behavior when the enable custom 404 page checkbox value change
+     */
     private setEnablePageEvent(): void{
         this._cb_enable_custom_404_page.on('change',()=>{
             if(this._cb_enable_custom_404_page.is(':checked')){
@@ -69,6 +73,25 @@ export class AdminCustomPageMenuEvents{
         })
     }
 
+    /**
+     *  Set the behavior when the use title checkbox value change
+     */
+    private setEnableTitleEvent(): void{
+        this._cb_use_title.on('change',()=>{
+            if(this._cb_use_title.is(':checked')){
+                if(this._div_title_section.hasClass('d-none'))
+                    this._div_title_section.removeClass('d-none')
+            }
+            else{
+                if(!this._div_title_section.hasClass('d-none'))
+                    this._div_title_section.addClass('d-none')
+            }
+        })
+    }
+
+    /**
+     * Set the behavior when the use image checkbox value change
+     */
     private setEnableImageEvent(): void{
         this._cb_use_image.on('change',()=>{
             if(this._cb_use_image.is(':checked')){
@@ -82,6 +105,9 @@ export class AdminCustomPageMenuEvents{
         })
     }
 
+    /**
+     * Set the behavior when the use text checkbox value change
+     */
     private setEnableTextEvent(): void{
         this._cb_use_text.on('change',()=>{
             if(this._cb_use_text.is(':checked')){
@@ -95,13 +121,12 @@ export class AdminCustomPageMenuEvents{
         })
     }
 
+    /**
+     * When the update settings button has been clicked
+     * @param callback the callback to invoke on button click
+     */
     private setSaveButtonEvent(callback: (acpust: AdminCustomPageUpdateSettingsType) => void): void{
         this._bt_save.on('click',()=>{
-            const native_input: HTMLInputElement = this._input_file_image.get(0) as HTMLInputElement;
-            let file: File|undefined = undefined;
-            if(native_input && native_input.files && native_input.files.length > 0){
-                file = native_input.files[0] as File;
-            }
             const acpustType: AdminCustomPageUpdateSettingsType = {
                 enable_custom_404_page: this._cb_enable_custom_404_page.val() as string,
                 use_title: this._cb_use_title.val() as string,
