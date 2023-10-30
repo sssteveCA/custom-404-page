@@ -15,7 +15,7 @@ export class AdminCustomPageUpdateSettings{
     private _errno: number = 0;
     private _error: string|null = null;
 
-    private static UPDATESETTINGS_URL:string = Constants.SCRIPT_DIR+'/update_settings_script.php';
+    private static UPDATESETTINGS_URL:string = Constants.scriptPath()+'/update_settings_script.php';
 
     public static ERR_FETCH: number = 1;
     private static ERR_FETCH_MSG:string = "Errore durante l'esecuzione della richiesta.";
@@ -57,8 +57,11 @@ export class AdminCustomPageUpdateSettings{
         this._errno = 0;
         try{
             await this.updateSettingsPromise().then(res => {
+                console.log(res)
                 response = JSON.parse(res)
+                
             }).catch(err => {
+                console.warn(err)
                 throw err;
             })
         }catch(e){

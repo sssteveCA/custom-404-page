@@ -17,7 +17,7 @@ jQuery(()=>{
         cb_enable_image: jQuery('#enable-custom-404-image'),
         div_image_section: jQuery('#custom-404-image-section'),
         input_file_image: jQuery('#custom-404-image'),
-        input_image_path: jQuery('#custom-404-image-path-div'),
+        input_image_path: jQuery('#custom-404-image-path'),
         cb_enable_text: jQuery('#enable-custom-404-text'),
         div_text_section: jQuery('#page-404-text-section'),
         ta_text: jQuery('#custom-404-text'),

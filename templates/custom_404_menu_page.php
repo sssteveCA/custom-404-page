@@ -77,7 +77,7 @@
             <div class="col">
         <?php if($enabledCustomPage): ?>
             <?php if($showArticles): ?>
-                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" checked> 
+                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="true" checked> 
             <?php else: ?>
                 <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="true">
             <?php endif; ?>
