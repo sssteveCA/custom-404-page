@@ -10,7 +10,7 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         'css/admin_custom_page_menu': join(scssPath,'admin_custom_page_menu.scss'),
-        'css/wp_custom_404_template.css': join(scssPath,'wp_custom_404_template.scss'),
+        'css/wp_custom_404_template': join(scssPath,'wp_custom_404_template.scss'),
         'js/admin_custom_page_menu': join(tsPath,'admin_custom_page_menu.ts')
     },
     output: {
