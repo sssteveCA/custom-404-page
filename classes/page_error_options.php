@@ -2,6 +2,7 @@
 
 namespace CustomErrorPage\Classes;
 
+use CustomErrorPage\Traits\CommonTrait;
 use wpdb;
 
 /**
@@ -9,6 +10,7 @@ use wpdb;
  */
 class PageErrorOptions{
 
+    use CommonTrait;
 
     private wpdb $wpdb;
 
@@ -18,6 +20,11 @@ class PageErrorOptions{
      * If the custom 404 page must be shown on 404 errors
      */
     private string $enable_custom_404_page;
+
+    /**
+     * The custom 404 page header title
+     */
+    private string $custom_404_page_title;
 
     /**
      * If the page has an image
@@ -51,10 +58,11 @@ class PageErrorOptions{
     }
 
     public function getEnableCustom404Page(): string{ return $this->enable_custom_404_page;}
+    public function getCustom404PageTitle(): string{ return $this->custom_404_page_title;}
     public function getUseImage(): string{return $this->use_image;}
-    public function getImagePath(): ?string{return $this->image_path;}
+    public function getImagePath(): string{return $this->image_path;}
     public function getUseText(): string{return $this->use_text;}
-    public function getCustom404PageText(): ?string{ return $this->custom_404_page_text;}
+    public function getCustom404PageText(): string{ return $this->custom_404_page_text;}
     public function getShowArticles(): string{return $this->show_articles;}
 
     /**
@@ -64,8 +72,8 @@ class PageErrorOptions{
         $sql = <<<SQL
 SELECT * FROM {$this->table_name};
 SQL;
-        $result = $this->wpdb->get_results($sql,ARRAY_A);
-        $this->enable_custom_404_page = (isset($result[0]['value'])) ? $result[0]['value'] : "false";
+        $results = $this->wpdb->get_results($sql,ARRAY_A);
+        $found = $this->foundArray($results);
         $this->use_image = (isset($result[1]['value'])) ? $result[1]['value'] : "false";
         $this->image_path = (isset($result[2]['value'])) ? $result[2]['value'] : "";
         $this->use_text = (isset($result[3]['value'])) ? $result[3]['value'] : "false";

@@ -2,12 +2,14 @@
 
 namespace CustomErrorPage\Classes;
 use CustomErrorPage\Interfaces\Constants;
-
+use CustomErrorPage\Traits\CommonTrait;
 
 /**
  * Plugin activation/deactivation functions
  */
 class ActivationDeactivation{
+
+    use CommonTrait;
 
     const TABLE_NAME = "custom_404_page_table";
 
@@ -53,22 +55,7 @@ SQL;
      */
     private function insert_default_data(){
         $results = $this->wpdb->get_results("SELECT * FROM {$this->table_name}",ARRAY_A);
-        $found = [
-            'enable_custom_404_page' => false,
-            'use_image' => false,
-            'image_path' => false,
-            'use_text' => false,
-            'custom_404_page_text' => false,
-            'show_articles' => false,
-        ];
-        array_walk($results,function($value,$key) use($found){
-            if($value['name'] == 'enable_custom_404_page') $found['enable_custom_404_page'] = true;
-            if($value['name'] == 'use_image') $found['use_image'] = true;
-            if($value['name'] == 'image_path') $found['image_path'] = true;
-            if($value['name'] == 'use_text') $found['use_text'] = true;
-            if($value['name'] == 'custom_404_page_text') $found['custom_404_page_text'] = true;
-            if($value['name'] == 'show_articles') $found['show_articles'] = true;
-        });
+        $found = $this->foundArray($results);
         if(!$found['enable_custom_404_page'])
             $this->wpdb->insert($this->table_name,['name' => 'enable_custom_404_page', 'value' => 'false'],['%s','%s']);
         if(!$found['use_image'])
