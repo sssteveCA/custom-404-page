@@ -5,36 +5,39 @@ import { AdminCustomPageMenuEventsType, AdminCustomPageUpdateSettingsType } from
  */
 export class AdminCustomPageMenuEvents{
 
-    private _cb_enable_page: JQuery<HTMLInputElement>;
-    private _cb_enable_image: JQuery<HTMLInputElement>;
+    private _cb_enable_custom_404_page: JQuery<HTMLInputElement>;
+    private _cb_use_title: JQuery<HTMLInputElement>;
+    private _div_title_section: JQuery<HTMLDivElement>;
+    private _input_title: JQuery<HTMLInputElement>;
+    private _cb_use_image: JQuery<HTMLInputElement>;
     private _div_image_section: JQuery<HTMLDivElement>;
     private _input_file_image: JQuery<HTMLInputElement>;
     private _input_image_path: JQuery<HTMLInputElement>;
-    private _cb_enable_text: JQuery<HTMLInputElement>;
+    private _cb_use_text: JQuery<HTMLInputElement>;
     private _div_text_section: JQuery<HTMLDivElement>;
     private _ta_text: JQuery<HTMLTextAreaElement>;
     private _cb_show_articles: JQuery<HTMLInputElement>;
     private _bt_save: JQuery<HTMLButtonElement>;
 
     constructor(data: AdminCustomPageMenuEventsType){
-        this._cb_enable_page = data.cb_enable_page;
-        this._cb_enable_image = data.cb_enable_image;
+        this._cb_enable_custom_404_page = data.cb_enable_custom_404_page;
+        this._cb_use_image = data.cb_use_image;
         this._div_image_section = data.div_image_section;
         this._input_image_path = data.input_image_path;
         this._input_file_image = data.input_file_image;
-        this._cb_enable_text = data.cb_enable_text;
+        this._cb_use_text = data.cb_use_text;
         this._div_text_section = data.div_text_section;
         this._ta_text = data.ta_text;
         this._cb_show_articles = data.cb_show_articles;
         this._bt_save = data.bt_save;
     }
 
-    get cb_enable_page(){ return this._cb_enable_page; }
-    get cb_enable_image(){ return this._cb_enable_image; }
+    get cb_enable_custom_404_page(){ return this._cb_enable_custom_404_page; }
+    get cb_use_image(){ return this._cb_use_image; }
     get div_image_section(){ return this._div_image_section; }
     get input_file_image(){ return this._input_file_image; }
     get input_image_path(){ return this._input_image_path; }
-    get cb_enable_text(){ return this._cb_enable_text; }
+    get cb_use_text(){ return this._cb_use_text; }
     get div_text_section(){ return this._div_text_section; }
     get ta_text(){ return this._ta_text; }
     get cb_show_articles(){ return this._cb_show_articles; }
@@ -52,23 +55,23 @@ export class AdminCustomPageMenuEvents{
     }
 
     private setEnablePageEvent(): void{
-        this._cb_enable_page.on('change',()=>{
-            if(this._cb_enable_page.is(':checked')){
-                this._cb_enable_image.prop('disabled',false)
-                this._cb_enable_text.prop('disabled',false)
+        this._cb_enable_custom_404_page.on('change',()=>{
+            if(this._cb_enable_custom_404_page.is(':checked')){
+                this._cb_use_image.prop('disabled',false)
+                this._cb_use_text.prop('disabled',false)
                 this._cb_show_articles.prop('disabled',false);
             }
             else{
-                this._cb_enable_image.prop('disabled',true)
-                this._cb_enable_text.prop('disabled',true)
+                this._cb_use_image.prop('disabled',true)
+                this._cb_use_text.prop('disabled',true)
                 this._cb_show_articles.prop('disabled',true);
             }
         })
     }
 
     private setEnableImageEvent(): void{
-        this._cb_enable_image.on('change',()=>{
-            if(this._cb_enable_image.is(':checked')){
+        this._cb_use_image.on('change',()=>{
+            if(this._cb_use_image.is(':checked')){
                 if(this._div_image_section.hasClass('d-none'))
                     this._div_image_section.removeClass('d-none')
             }
@@ -80,8 +83,8 @@ export class AdminCustomPageMenuEvents{
     }
 
     private setEnableTextEvent(): void{
-        this._cb_enable_text.on('change',()=>{
-            if(this._cb_enable_text.is(':checked')){
+        this._cb_use_text.on('change',()=>{
+            if(this._cb_use_text.is(':checked')){
                 if(this._div_text_section.hasClass('d-none'))
                     this._div_text_section.removeClass('d-none')
             }
@@ -100,13 +103,14 @@ export class AdminCustomPageMenuEvents{
                 file = native_input.files[0] as File;
             }
             const acpustType: AdminCustomPageUpdateSettingsType = {
-                enable_page: this._cb_enable_page.val() as string,
-                enable_image: this._cb_enable_image.val() as string,
+                enable_custom_404_page: this._cb_enable_custom_404_page.val() as string,
+                use_title: this._cb_use_title.val() as string,
+                title: this._input_title.val() as string,
+                use_image: this._cb_use_image.val() as string,
                 image_path: this._input_image_path.val() as string,
-                enable_text: this._cb_enable_text.val() as string,
+                use_text: this._cb_use_text.val() as string,
                 text: this._ta_text.val() as string,
                 show_articles: this._cb_show_articles.val() as string
-
             }
             callback(acpustType);
         })

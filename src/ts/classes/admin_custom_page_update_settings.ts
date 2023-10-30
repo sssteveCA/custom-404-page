@@ -6,10 +6,12 @@ import { AdminCustomPageUpdateSettingsType } from "../types/types";
  */
 export class AdminCustomPageUpdateSettings{
 
-    private _enable_page: string;
-    private _enable_image: string;
+    private _enable_custom_404_page: string;
+    private _use_title: string;
+    private _title: string;
+    private _use_image: string;
     private _image_path: string;
-    private _enable_text: string;
+    private _use_text: string;
     private _text: string;
     private _show_articles: string;
     private _errno: number = 0;
@@ -22,18 +24,22 @@ export class AdminCustomPageUpdateSettings{
 
 
     constructor(data: AdminCustomPageUpdateSettingsType){
-        this._enable_page = data.enable_page;
-        this._enable_image = data.enable_image;
+        this._enable_custom_404_page = data.enable_custom_404_page;
+        this._use_title = data.use_title;
+        this._title = data.title;
+        this._use_image = data.use_image;
         this._image_path = data.image_path;
-        this._enable_text = data.enable_text;
+        this._use_text = data.use_text;
         this._text = data.text;
         this._show_articles = data.show_articles;
     }
 
-    get enable_page(){ return this._enable_page; }
-    get enable_image(){ return this._enable_image; }
+    get enable_custom_404_page(){ return this._enable_custom_404_page; }
+    get use_title(){ return this._use_title; }
+    get title(){ return this._title; }
+    get use_image(){ return this._use_image; }
     get image_path(){ return this._image_path; }
-    get enable_text(){ return this._enable_text; }
+    get use_text(){ return this._use_text; }
     get text(){ return this._text; }
     get show_articles(){ return this._show_articles; }
     get errno(){ return this._errno; }
@@ -77,10 +83,12 @@ export class AdminCustomPageUpdateSettings{
     private async updateSettingsPromise(): Promise<string>{
         return await new Promise<string>((resolve, reject) => {
             const data: object = {
-                'enable_page': this._enable_page,
-                'enable_image': this._enable_image,
+                'enable_custom_404_page': this._enable_custom_404_page,
+                'use_title': this._use_title,
+                'title': this._title,
+                'use_image': this._use_image,
                 'image_path': this._image_path,
-                'enable_text': this._enable_text,
+                'use_text': this._use_text,
                 'text': this._text,
                 'show_articles': this._show_articles
             }

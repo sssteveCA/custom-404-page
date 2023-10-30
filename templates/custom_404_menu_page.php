@@ -8,25 +8,25 @@
         <div class="row mt-3">
             <div class="col">
             <?php if($enabledCustomPage): ?>
-                <input type="checkbox" id="enable-custom-404" class="form-check-input" name="enable-custom-404" value="true" checked>
+                <input type="checkbox" id="enable-custom-404-page" class="form-check-input" name="enable-custom-404-page" value="true" checked>
             <?php else: ?>
-                <input type="checkbox" id="enable-custom-404" class="form-check-input" name="enable-custom-404" value="true">
+                <input type="checkbox" id="enable-custom-404-page" class="form-check-input" name="enable-custom-404-page" value="true">
             <?php endif; ?>
-                <label for="enable-custom-404" class="form-label ms-2">Utilizza la pagina 404</label>
+                <label for="enable-custom-404-page" class="form-label ms-2">Utilizza la pagina 404</label>
             </div>
         <div>
         <div class="row mt-3">
             <div class="col-12">
                 <?php if($enabledCustomPage): ?>
                     <?php if($useTitle): ?>
-                        <input type="checkbox" id="enable-custom-404-title" class="form-check-input" name="enable-custom-404-title" value="true" checked>
+                        <input type="checkbox" id="use-custom-404-title" class="form-check-input" name="use-custom-404-title" value="true" checked>
                     <?php else: ?>
-                        <input type="checkbox" id="enable-custom-404-title" class="form-check-input" name="enable-custom-404-title" value="true">
+                        <input type="checkbox" id="use-custom-404-title" class="form-check-input" name="use-custom-404-title" value="true">
                     <?php endif; ?>
                 <?php else: ?>
-                    <input type="checkbox" id="enable-custom-404-title" class="form-check-input" name="enable-custom-404-title" value="true" disabled>
+                    <input type="checkbox" id="use-custom-404-title" class="form-check-input" name="use-custom-404-title" value="true" disabled>
                 <?php endif; ?>
-                    <label for="enable-custom-404-title" class="form-label ms-2">Titolo per la pagina 404</label>
+                    <label for="use-custom-404-title" class="form-label ms-2">Titolo per la pagina 404</label>
             </div>
         </div>
         <?php if($enabledCustomPage && $useTitle): ?>
@@ -45,14 +45,14 @@
             <div class="col-12">
             <?php if($enabledCustomPage): ?>
                 <?php if($useImage): ?>
-                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" value="true" checked>
+                <input type="checkbox" id="use-custom-404-image" class="form-check-input" name="use-custom-404-image" value="true" checked>
                 <?php else: ?>
-                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" value="true">
+                <input type="checkbox" id="use-custom-404-image" class="form-check-input" name="use-custom-404-image" value="true">
                 <?php endif; ?>
             <?php else: ?>
-                <input type="checkbox" id="enable-custom-404-image" class="form-check-input" name="enable-custom-404-image" value="true" disabled>
+                <input type="checkbox" id="use-custom-404-image" class="form-check-input" name="use-custom-404-image" value="true" disabled>
             <?php endif; ?>    
-                <label for="enable-custom-404-image" class="form-label ms-2">Utilizza un'immagine per la pagina 404</label>
+                <label for="use-custom-404-image" class="form-label ms-2">Utilizza un'immagine per la pagina 404</label>
             </div>
         </div>
         <?php if($enabledCustomPage && $useImage): ?>
@@ -77,14 +77,14 @@
             <div class="col-12">
             <?php if($enabledCustomPage): ?>
                 <?php if($useText): ?>
-                <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" value="true" checked>
+                <input type="checkbox" id="use-custom-404-text" class="form-check-input" name="use-custom-404-text" value="true" checked>
                 <?php else: ?>
-                <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" value="true">
+                <input type="checkbox" id="use-custom-404-text" class="form-check-input" name="use-custom-404-text" value="true">
                 <?php endif; ?>
             <?php else: ?>
-                <input type="checkbox" id="enable-custom-404-text" class="form-check-input" name="enable-custom-404-text" value="true" disabled>
+                <input type="checkbox" id="use-custom-404-text" class="form-check-input" name="use-custom-404-text" value="true" disabled>
             <?php endif; ?>
-                <label for="enable-custom-404-text" class="form-label ms-2">Utilizza un testo per la pagina 404</label>
+                <label for="use-custom-404-text" class="form-label ms-2">Utilizza un testo per la pagina 404</label>
             </div>
         </div>
         <?php if($enabledCustomPage && $useText): ?>

@@ -13,12 +13,15 @@ jQuery(()=>{
     }
     const mu: MediaUploader = new MediaUploader(mut)
     const acpmet: AdminCustomPageMenuEventsType = {
-        cb_enable_page: jQuery('#enable-custom-404'),
-        cb_enable_image: jQuery('#enable-custom-404-image'),
+        cb_enable_custom_404_page: jQuery('#enable-custom-404-page'),
+        cb_use_title: jQuery('#use-custom-404-title'),
+        div_title_section: jQuery('#custom-404-title-section'),
+        input_title: jQuery('#custom-404-title'),
+        cb_use_image: jQuery('#use-custom-404-image'),
         div_image_section: jQuery('#custom-404-image-section'),
         input_file_image: jQuery('#custom-404-image'),
         input_image_path: jQuery('#custom-404-image-path'),
-        cb_enable_text: jQuery('#enable-custom-404-text'),
+        cb_use_text: jQuery('#use-custom-404-text'),
         div_text_section: jQuery('#page-404-text-section'),
         ta_text: jQuery('#custom-404-text'),
         cb_show_articles: jQuery('#show-random-articles'),

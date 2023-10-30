@@ -4,12 +4,15 @@
  */
 export type AdminCustomPageMenuEventsType = {
   
-    cb_enable_page: JQuery<HTMLInputElement>;
-    cb_enable_image: JQuery<HTMLInputElement>;
+    cb_enable_custom_404_page: JQuery<HTMLInputElement>;
+    cb_use_title: JQuery<HTMLInputElement>;
+    div_title_section: JQuery<HTMLInputElement>;
+    input_title: JQuery<HTMLInputElement>;
+    cb_use_image: JQuery<HTMLInputElement>;
     div_image_section: JQuery<HTMLDivElement>;
     input_file_image: JQuery<HTMLInputElement>;
     input_image_path: JQuery<HTMLInputElement>;
-    cb_enable_text: JQuery<HTMLInputElement>;
+    cb_use_text: JQuery<HTMLInputElement>;
     div_text_section: JQuery<HTMLDivElement>;
     ta_text: JQuery<HTMLTextAreaElement>;
     cb_show_articles: JQuery<HTMLInputElement>;
@@ -20,10 +23,12 @@ export type AdminCustomPageMenuEventsType = {
  * Type for AdminCustomPageUpdateSettings class
  */
 export type AdminCustomPageUpdateSettingsType = {
-    enable_page: string;
-    enable_image: string;
+    enable_custom_404_page: string;
+    use_title: string;
+    title: string;
+    use_image: string;
     image_path: string;
-    enable_text: string;
+    use_text: string;
     text: string;
     show_articles: string;
 }
