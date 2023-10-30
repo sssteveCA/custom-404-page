@@ -4,7 +4,7 @@
 			<section class="error-404 not-found">
                 <?php if($useTitle && !empty($title)): ?>
 				<header class="page-header">
-					<h1 class="page-title"><? echo esc_html($title); ?></h1>
+					<h1 class="page-title text-center fs-2 fw-bold"><? echo esc_html($title); ?></h1>
 				</header><!-- .page-header -->
                 <?php endif; ?>
 				<div class="page-content">
@@ -13,14 +13,14 @@
                         $urlPattern = '/^(https?:\/\/)?([a-z\d.-_]+)\.([a-z]{2,6})(\/([^\s]*)?)?$/i';
                          if($useImage && preg_match($urlPattern,$imagePath)): ?>
                         <div class="row mt-3">
-                            <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-md-2">
+                            <div class="custom-page-404-image col-12 col-md-10 col-lg-8 offset-md-1 offset-md-2">
                                 <img src="<?php echo esc_url($imagePath); ?>" alt="Pagina non trovata" title="Pagina non trovata">
                             </div>
                         </div>
                         <?php endif; ?>
                         <?php if($useText && !empty($text)): ?>
                         <div class="row mt-3 gx-md-2 gx-lg-4">
-                            <div class="col-12"><?php echo esc_html($text); ?></div>
+                            <div class="col-12 fs-4 fw-bolder text-center"><?php echo esc_html($text); ?></div>
                         </div>
                         <?php endif; ?>
                         <?php if($showArticles): ?>
@@ -37,7 +37,11 @@
                             <div class="col-12 col-md-6 col-lg-3 text-center post-link-wrapper">
                                 <a class="post-link" href="<?php the_permalink(); ?>">
                                     <div class="post-thumbnail">
-                                        <?php the_post_thumbnail('thumbnail'); ?>
+                                        <?php
+                                        if(has_post_thumbnail()):
+                                            the_post_thumbnail('thumbnail');
+                                        endif;
+                                          ?>
                                     </div>
                                     <h5 class="post-title"><?php the_title(); ?></h5>
                                 </a>
