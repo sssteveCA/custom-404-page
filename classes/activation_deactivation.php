@@ -58,6 +58,8 @@ SQL;
         $found = $this->foundResultsRows($results);
         if(!$found['enable_custom_404_page'])
             $this->wpdb->insert($this->table_name,['name' => 'enable_custom_404_page', 'value' => 'false'],['%s','%s']);
+        if(!$found['use_title'])
+            $this->wpdb->insert($this->table_name,['name' => 'use_title', 'value' => 'false'],['%s','%s']);
         if(!$found['title'])
             $this->wpdb->insert($this->table_name,['name' => 'title', 'value' => ''],['%s','%s']);
         if(!$found['use_image'])

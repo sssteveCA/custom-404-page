@@ -26,6 +26,8 @@ class WpHooks{
             $peo = new PageErrorOptions($this->wpdb,$this->wpdb->prefix.self::TABLE_NAME);
             $enabledCustomPage = $peo->getEnableCustom404Page();
             if($enabledCustomPage){
+                $useTitle = $peo->getUseTitle();
+                $title = $peo->getTitle();
                 $useImage = $peo->getUseImage();
                 $imagePath = $peo->getImagePath() ? $peo->getImagePath() : "";
                 $useText = $peo->getUseText();

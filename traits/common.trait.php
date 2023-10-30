@@ -15,6 +15,7 @@ trait CommonTrait{
     private function changeResultsArray(array $results): array{
         $results_kv = [
             'enable_custom_404_page' => 'false',
+            'use_title' => 'false',
             'title' => '',
             'use_image' => 'false',
             'image_path' => '',
@@ -36,6 +37,7 @@ trait CommonTrait{
     private function foundResultsRows(array $results): array{
         $found = [
             'enable_custom_404_page' => false,
+            'use_title' => false,
             'title' => false,
             'use_image' => false,
             'image_path' => false,

@@ -15,7 +15,33 @@
                 <label for="enable-custom-404" class="form-label ms-2">Utilizza la pagina 404</label>
             </div>
         <div>
-        <div class="row bordered mt-3">
+        <div class="row mt-3">
+            <div class="col-12">
+                <?php if($enabledCustomPage): ?>
+                    <?php if($useTitle): ?>
+                        <input type="checkbox" id="enable-custom-404-title" class="form-check-input" name="enable-custom-404-title" value="true" checked>
+                    <?php else: ?>
+                        <input type="checkbox" id="enable-custom-404-title" class="form-check-input" name="enable-custom-404-title" value="true">
+                    <?php endif; ?>
+                <?php else: ?>
+                    <input type="checkbox" id="enable-custom-404-title" class="form-check-input" name="enable-custom-404-title" value="true" disabled>
+                <?php endif; ?>
+                    <label for="enable-custom-404-title" class="form-label ms-2">Titolo per la pagina 404</label>
+            </div>
+        </div>
+        <?php if($enabledCustomPage && $useTitle): ?>
+        <div id="custom-404-title-section" class="row mt-1">
+        <?php else: ?>
+        <div id="custom-404-title-section" class="row mt-1 d-none">
+        <?php endif; ?>
+            <div class="col-12 col-lg-6">
+                <label for="custom-404-title" class="form-label">Titolo</label>
+            </div>
+            <div class="col-12 col-lg-6">
+                <input type="text" id="custom-404-title" class="form-control" name="custom-404-title" accept="image/*">
+            </div>
+        </div>
+        <div class="row mt-3">
             <div class="col-12">
             <?php if($enabledCustomPage): ?>
                 <?php if($useImage): ?>

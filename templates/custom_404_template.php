@@ -2,9 +2,11 @@
 <div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<section class="error-404 not-found">
+                <?php if($useTitle && !empty($title)): ?>
 				<header class="page-header">
-					<h1 class="page-title">Pagina non trovata</h1>
+					<h1 class="page-title"><? echo esc_html($title); ?></h1>
 				</header><!-- .page-header -->
+                <?php endif; ?>
 				<div class="page-content">
                     <div class="container-fluid">
                         <?php

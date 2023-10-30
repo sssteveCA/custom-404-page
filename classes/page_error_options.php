@@ -22,6 +22,11 @@ class PageErrorOptions{
     private string $enable_custom_404_page;
 
     /**
+     * If the page has a custom title
+     */
+    private string $use_title;
+
+    /**
      * The custom 404 page header title
      */
     private string $title;
@@ -58,6 +63,7 @@ class PageErrorOptions{
     }
 
     public function getEnableCustom404Page(): string{ return $this->enable_custom_404_page;}
+    public function getUseTitle(): string{return $this->use_title;}
     public function getTitle(): string{ return $this->title;}
     public function getUseImage(): string{return $this->use_image;}
     public function getImagePath(): string{return $this->image_path;}
@@ -75,6 +81,7 @@ SQL;
         $results = $this->wpdb->get_results($sql,ARRAY_A);
         $results_kv = $this->changeResultsArray($results);
         $this->enable_custom_404_page = $results_kv['enable_custom_404_page'];
+        $this->use_title = $results_kv['use_title'];
         $this->title = $results_kv['title'];
         $this->use_image = $results_kv['use_image'];
         $this->image_path = $results_kv['image_path'];
