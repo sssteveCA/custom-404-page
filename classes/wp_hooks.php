@@ -29,7 +29,7 @@ class WpHooks{
                 $useImage = $peo->getUseImage();
                 $imagePath = $peo->getImagePath() ? $peo->getImagePath() : "";
                 $useText = $peo->getUseText();
-                $text = $peo->getCustom404PageText() ? $peo->getCustom404PageText() : "";
+                $custom404PageText = $peo->getCustom404PageText() ? $peo->getCustom404PageText() : "";
                 $showArticles = $peo->getShowArticles();
                 include $custom_404_template_path;
                 exit();

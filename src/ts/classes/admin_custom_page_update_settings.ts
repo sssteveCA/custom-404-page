@@ -10,7 +10,7 @@ export class AdminCustomPageUpdateSettings{
     private _enable_image: string;
     private _image_path: string;
     private _enable_text: string;
-    private _text: string;
+    private _custom_404_page_text: string;
     private _show_articles: string;
     private _errno: number = 0;
     private _error: string|null = null;
@@ -26,7 +26,7 @@ export class AdminCustomPageUpdateSettings{
         this._enable_image = data.enable_image;
         this._image_path = data.image_path;
         this._enable_text = data.enable_text;
-        this._text = data.text;
+        this._custom_404_page_text = data.custom_404_page_text;
         this._show_articles = data.show_articles;
     }
 
@@ -34,7 +34,7 @@ export class AdminCustomPageUpdateSettings{
     get enable_image(){ return this._enable_image; }
     get image_path(){ return this._image_path; }
     get enable_text(){ return this._enable_text; }
-    get text(){ return this._text; }
+    get custom_404_page_text(){ return this._custom_404_page_text; }
     get show_articles(){ return this._show_articles; }
     get errno(){ return this._errno; }
     get error(){
@@ -81,7 +81,7 @@ export class AdminCustomPageUpdateSettings{
                 'enable_image': this._enable_image,
                 'image_path': this._image_path,
                 'enable_text': this._enable_text,
-                'text': this._text,
+                'custom_404_page_text': this._custom_404_page_text,
                 'show_articles': this._show_articles
             }
             fetch(AdminCustomPageUpdateSettings.UPDATESETTINGS_URL,{

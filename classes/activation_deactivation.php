@@ -35,7 +35,7 @@ CREATE TABLE {$this->table_name} (
 SQL;
         require_once ABSPATH."/wp-admin/includes/upgrade.php";
         $result = dbDelta( $query );
-        $this->insertDefaultData();
+        $this->insert_default_data();
     }
 
     /**
@@ -51,16 +51,37 @@ SQL;
     /**
      * Insert the default data when the table is created
      */
-    private function insertDefaultData(){
-        $this->wpdb->get_results("SELECT * FROM {$this->table_name} LIMIT 1");
-        if($this->wpdb->num_rows < 1){
+    private function insert_default_data(){
+        $results = $this->wpdb->get_results("SELECT * FROM {$this->table_name}",ARRAY_A);
+        $found = [
+            'enable_custom_404_page' => false,
+            'use_image' => false,
+            'image_path' => false,
+            'use_text' => false,
+            'custom_404_page_text' => false,
+            'show_articles' => false,
+        ];
+        array_walk($results,function($value,$key) use($found){
+            if($value['name'] == 'enable_custom_404_page') $found['enable_custom_404_page'] = true;
+            if($value['name'] == 'use_image') $found['use_image'] = true;
+            if($value['name'] == 'image_path') $found['image_path'] = true;
+            if($value['name'] == 'use_text') $found['use_text'] = true;
+            if($value['name'] == 'custom_404_page_text') $found['custom_404_page_text'] = true;
+            if($value['name'] == 'show_articles') $found['show_articles'] = true;
+        });
+        if(!$found['enable_custom_404_page'])
             $this->wpdb->insert($this->table_name,['name' => 'enable_custom_404_page', 'value' => 'false'],['%s','%s']);
+        if(!$found['use_image'])
             $this->wpdb->insert($this->table_name,['name' => 'use_image', 'value' => 'false'],['%s','%s']);
+        if(!$found['image_path'])
             $this->wpdb->insert($this->table_name,['name' => 'image_path', 'value' => ''],['%s','%s']);
+        if(!$found['use_text'])
             $this->wpdb->insert($this->table_name,['name' => 'use_text', 'value' => 'false'],['%s','%s']);
+        if(!$found['custom_404_page_text'])
             $this->wpdb->insert($this->table_name,['name' => 'custom_404_page_text', 'value' => ''],['%s','%s']);
+        if(!$found['show_articles'])
             $this->wpdb->insert($this->table_name,['name' => 'show_articles', 'value' => 'false'],['%s','%s']);
-        }
+        
     }
 
 }
