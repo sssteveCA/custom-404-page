@@ -73,12 +73,13 @@ class PageErrorOptions{
 SELECT * FROM {$this->table_name};
 SQL;
         $results = $this->wpdb->get_results($sql,ARRAY_A);
-        $found = $this->foundArray($results);
-        $this->use_image = (isset($result[1]['value'])) ? $result[1]['value'] : "false";
-        $this->image_path = (isset($result[2]['value'])) ? $result[2]['value'] : "";
-        $this->use_text = (isset($result[3]['value'])) ? $result[3]['value'] : "false";
-        $this->custom_404_page_text = (isset($result[4]['value'])) ? $result[4]['value'] : "";
-        $this->show_articles = (isset($result[5]['value'])) ? $result[5]['value'] : "false";
+        $results_kv = $this->changeResultsArray($results);
+        $this->enable_custom_404_page = $results_kv['enable_custom_404_page'];
+        $this->use_image = $results_kv['use_image'];
+        $this->image_path = $results_kv['image_path'];
+        $this->use_text = $results_kv['use_text'];
+        $this->custom_404_page_text = $results_kv['custom_404_page_text'];
+        $this->show_articles = $results_kv['show_articles'];
     }
 
 

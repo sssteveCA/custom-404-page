@@ -55,7 +55,7 @@ SQL;
      */
     private function insert_default_data(){
         $results = $this->wpdb->get_results("SELECT * FROM {$this->table_name}",ARRAY_A);
-        $found = $this->foundArray($results);
+        $found = $this->foundResultsRows($results);
         if(!$found['enable_custom_404_page'])
             $this->wpdb->insert($this->table_name,['name' => 'enable_custom_404_page', 'value' => 'false'],['%s','%s']);
         if(!$found['use_image'])
