@@ -21,6 +21,9 @@ export class AdminCustomPageMenuEvents{
 
     constructor(data: AdminCustomPageMenuEventsType){
         this._cb_enable_custom_404_page = data.cb_enable_custom_404_page;
+        this._cb_use_title = data.cb_use_title;
+        this._div_title_section = data.div_title_section;
+        this._input_title = data.input_title;
         this._cb_use_image = data.cb_use_image;
         this._div_image_section = data.div_image_section;
         this._input_image_path = data.input_image_path;
@@ -100,7 +103,7 @@ export class AdminCustomPageMenuEvents{
             }
             else{
                 if(!this._div_image_section.hasClass('d-none'))
-                        this._div_image_section.addClass('d-none')
+                    this._div_image_section.addClass('d-none')
             }
         })
     }

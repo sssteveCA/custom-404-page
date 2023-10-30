@@ -10,8 +10,8 @@
 				<div class="page-content">
                     <div class="container-fluid">
                         <?php
-                        $url_pattern = '/^(https?:\/\/)?([a-z\d.-_]+)\.([a-z]{2,6})(\/([^\s]*)?)?$/i';
-                         if($useImage && preg_match($url_pattern,$imagePath)): ?>
+                        $urlPattern = '/^(https?:\/\/)?([a-z\d.-_]+)\.([a-z]{2,6})(\/([^\s]*)?)?$/i';
+                         if($useImage && preg_match($urlPattern,$imagePath)): ?>
                         <div class="row mt-3">
                             <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-md-2">
                                 <img src="<?php echo esc_url($imagePath); ?>" alt="Pagina non trovata" title="Pagina non trovata">
