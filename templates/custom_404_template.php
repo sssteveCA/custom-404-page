@@ -32,10 +32,13 @@
                             if($query->have_posts()):
                                 while($query->have_posts()):
                                     $query->the_post(); ?>
-                            <div class="col-12 col-md-6 col-lg-3 text-center">
-                                <li>
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                </li>
+                            <div class="col-12 col-md-6 col-lg-3 text-center post-link-wrapper">
+                                <a class="post-link" href="<?php the_permalink(); ?>">
+                                    <div class="post-thumbnail">
+                                        <?php the_post_thumbnail('thumbnail'); ?>
+                                    </div>
+                                    <h5 class="post-title"><?php the_title(); ?></h5>
+                                </a>
                             </div>
                                 <?php endwhile;
                             endif;
