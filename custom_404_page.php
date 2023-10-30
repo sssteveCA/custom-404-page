@@ -1,6 +1,8 @@
 <?php
 use CustomErrorPage\Classes\ActivationDeactivation;
 use CustomErrorPage\Classes\AdminHooks;
+use CustomErrorPage\Classes\WpHooks;
+
 /**
  * Plugin Name: Custom 404 page
  * Description: Customize your 404 page
@@ -14,11 +16,12 @@ use CustomErrorPage\Classes\AdminHooks;
  */
 
 require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__.'/classes/wp_hooks.php';
 
 $wpdb = $GLOBALS['wpdb'];
 $ad = new ActivationDeactivation($wpdb);
 $ah = new AdminHooks($wpdb);
-$cf = new \CustomErrorPage\Classes\WpHooks($wpdb);
+$cf = new WpHooks($wpdb);
 
 register_activation_hook(__FILE__,[$ad,'activate']);
 register_uninstall_hook(__FILE__,[$ad,'uninstall']);
