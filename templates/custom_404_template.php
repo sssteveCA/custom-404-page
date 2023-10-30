@@ -39,9 +39,10 @@
                                     <div class="post-thumbnail">
                                         <?php
                                         if(has_post_thumbnail()):
-                                            the_post_thumbnail('thumbnail');
-                                        endif;
-                                          ?>
+                                            the_post_thumbnail('thumbnail'); ?>
+                                        <?php elseif(isset($defaultPostThumbnailUrl)): ?>
+                                            <img src="<?php echo esc_url($defaultPostThumbnailUrl); ?>" alt="Immagine articolo" title="Immagine articolo">
+                                        <?php endif; ?>
                                     </div>
                                     <h5 class="post-title"><?php the_title(); ?></h5>
                                 </a>

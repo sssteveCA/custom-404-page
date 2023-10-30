@@ -2,12 +2,17 @@
     section.error-404.not-found{
         div.page-content{
             div.container-fluid{
-                .row{
-                    .custom-page-404-image{
+                div.row{
+                    div.custom-page-404-image{
                         text-align: center;
                         img{
                             width: clamp(150px,25vw,350px);
                             height: clamp(150px, 25vh, 350px);
+                        }
+                    }
+                    div.post-link-wrapper{
+                        a.post-link{
+                            text-decoration: none;
                         }
                     }
                 }

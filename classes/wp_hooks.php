@@ -35,6 +35,11 @@ class WpHooks{
                 $useText = $peo->getUseText();
                 $text = $peo->getText() ? $peo->getText() : "";
                 $showArticles = $peo->getShowArticles();
+                $defaultPostThumbnailAbs = WP_PLUGIN_DIR.'/custom_404_page/assets/images/default_post_thumbnail.jpg';
+                $defaultPostThumbnailUrl = null;
+                if(file_exists($defaultPostThumbnailAbs)){
+                    $defaultPostThumbnailUrl = plugins_url().'/custom_404_page/assets/images/default_post_thumbnail.jpg';
+                }
                 include $custom_404_template_path;
                 exit();
             }
