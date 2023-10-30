@@ -16,7 +16,6 @@ use CustomErrorPage\Classes\WpHooks;
  */
 
 require_once __DIR__.'/vendor/autoload.php';
-require_once __DIR__.'/classes/wp_hooks.php';
 
 $wpdb = $GLOBALS['wpdb'];
 $ad = new ActivationDeactivation($wpdb);

@@ -41,7 +41,7 @@
                 <input type="file" id="custom-404-image" class="form-control" name="custom-404-image" accept="image/*">
                 <input type="hidden" id="custom-404-image-path" name="image_path" value="<?php echo esc_url($imagePath); ?>">
             </div>
-            <div id="custom-404-image-path-div" class="col-12">
+            <div id="custom-404-image-path-div" class="col-12 mt-2">
             <?php if($imagePath): ?>
                 Percorso immagine 404: <?php echo esc_url($imagePath); ?>
             <?php endif; ?>       

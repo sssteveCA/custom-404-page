@@ -65,12 +65,12 @@ class PageErrorOptions{
 SELECT * FROM {$this->table_name};
 SQL;
         $result = $this->wpdb->get_results($sql,ARRAY_A);
-        $this->enable_custom_404_page = (isset($result['enable_custom_404_page'])) ? $result['enable_custom_404_page'] : "false";
-        $this->use_image = (isset($result['use_image'])) ? $result['use_image'] : "false";
-        $this->image_path = (isset($result['image_path'])) ? $result['image_path'] : "";
-        $this->use_text = (isset($result['use_text'])) ? $result['use_test'] : "false";
-        $this->custom_404_page_text = (isset($result['custom_404_page_text'])) ? $result['custom_404_page_text'] : "";
-        $this->show_articles = (isset($result['show_articles'])) ? $result['show_articles'] : "false";
+        $this->enable_custom_404_page = (isset($result[0]['value'])) ? $result[0]['value'] : "false";
+        $this->use_image = (isset($result[1]['value'])) ? $result[1]['value'] : "false";
+        $this->image_path = (isset($result[2]['value'])) ? $result[2]['value'] : "";
+        $this->use_text = (isset($result[3]['value'])) ? $result[3]['value'] : "false";
+        $this->custom_404_page_text = (isset($result[4]['value'])) ? $result[4]['value'] : "";
+        $this->show_articles = (isset($result[5]['value'])) ? $result[5]['value'] : "false";
     }
 
 
