@@ -1,0 +1,23 @@
+@use "./modules/mixins.scss" as m;
+
+@mixin custom-404-page(){
+    section.error-404.not-found{
+        div.page-content{
+            div.container-fluid{
+                div.row{
+                    $image-width: clamp(300px,50vw,600px);
+                    $image-height: clamp(150px, 50vh, 300px);
+                    @include m.image-style('.custom-page-404-image',$image-width,$image-height);
+                    div.post-link-wrapper{
+                        a.post-link{
+                            text-decoration: none;
+                            @include m.image-style('.post-thumbnail',100px,100px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include custom-404-page();

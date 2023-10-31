@@ -1,0 +1,34 @@
+
+
+@mixin admin-custom-page-menu(){
+    #custom-404-item-container{
+        .container-fluid{
+            .row{
+                label{
+                    font-weight: bolder;
+                    font-size: 14px;
+                }
+                textarea#custom-404-text{
+                    height: 250px;
+                    resize: vertical;
+                }
+                &#custom-404-button-div{
+                    .custom-404-col-button-div{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        div#custom-404-button-spinner{
+                            margin-left: 15px;
+                        }
+                    }
+                }
+                div#custom-404-us-message{
+                    font-size: 22px;
+                    font-weight: bolder;
+                }
+            }
+        }
+    }
+}
+
+@include admin-custom-page-menu()

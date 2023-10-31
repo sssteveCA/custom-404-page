@@ -1,0 +1,10 @@
+
+@mixin image-style($container-class,$image-width,$image-height){
+    #{$container-class}{
+        text-align: center;
+        img{
+            width: $image-width;
+            height: $image-height;
+        }
+    }
+}

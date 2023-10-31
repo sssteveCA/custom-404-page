@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "CustomErrorPage\\Interfaces\\": "interfaces/"
+        },
+        "classmap": [
+            "classes/", "exceptions/", "interfaces/","traits/"
+        ]
+    }
+}
