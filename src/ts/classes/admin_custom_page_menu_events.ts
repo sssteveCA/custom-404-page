@@ -74,22 +74,30 @@ export class AdminCustomPageMenuEvents{
     private setEnablePageEvent(): void{
         this._cb_enable_custom_404_page.on('change',()=>{
             if(this._cb_enable_custom_404_page.is(':checked')){
-                this._cb_use_title.prop('disabled',false);
+                this._cb_use_title.prop('disabled',false)
                 this._cb_use_image.prop('disabled',false)
                 this._cb_use_text.prop('disabled',false)
-                this._cb_show_articles.prop('disabled',false);
+                this._cb_show_articles.prop('disabled',false)
             }
             else{
-                this._cb_use_title.prop('disabled',true);
+                this._cb_use_title.prop('disabled',true)
+                this._cb_use_title.prop('checked',false)
+                this._cb_use_title.val('false')
                 if(!this._div_title_section.hasClass('d-none'))
                     this._div_title_section.addClass('d-none')
                 this._cb_use_image.prop('disabled',true)
+                this._cb_use_image.prop('checked',false)
+                this._cb_use_image.val('false')
                 if(!this._div_image_section.hasClass('d-none'))
                     this._div_image_section.addClass('d-none')
                 this._cb_use_text.prop('disabled',true)
+                this._cb_use_text.prop('checked',false)
+                this._cb_use_text.val('false')
                 if(!this._div_text_section.hasClass('d-none'))
                     this._div_text_section.addClass('d-none')
-                this._cb_show_articles.prop('disabled',true);
+                this._cb_show_articles.prop('disabled',true)
+                this._cb_show_articles.prop('checked',false)
+                this._cb_show_articles.val('false')
                 if(!this._div_post_image_section.hasClass('d-none'))
                     this._div_post_image_section.addClass('d-none')
             }
@@ -102,10 +110,12 @@ export class AdminCustomPageMenuEvents{
     private setEnableTitleEvent(): void{
         this._cb_use_title.on('change',()=>{
             if(this._cb_use_title.is(':checked')){
+                this._cb_use_title.val('true')
                 if(this._div_title_section.hasClass('d-none'))
                     this._div_title_section.removeClass('d-none')
             }
             else{
+                this._cb_use_title.val('false')
                 if(!this._div_title_section.hasClass('d-none'))
                     this._div_title_section.addClass('d-none')
             }
@@ -118,10 +128,12 @@ export class AdminCustomPageMenuEvents{
     private setEnableImageEvent(): void{
         this._cb_use_image.on('change',()=>{
             if(this._cb_use_image.is(':checked')){
+                this._cb_use_image.val('true')
                 if(this._div_image_section.hasClass('d-none'))
                     this._div_image_section.removeClass('d-none')
             }
             else{
+                this._cb_use_image.val('false')
                 if(!this._div_image_section.hasClass('d-none'))
                     this._div_image_section.addClass('d-none')
             }
@@ -134,10 +146,12 @@ export class AdminCustomPageMenuEvents{
     private setEnableTextEvent(): void{
         this._cb_use_text.on('change',()=>{
             if(this._cb_use_text.is(':checked')){
+                this._cb_use_text.val('true')
                 if(this._div_text_section.hasClass('d-none'))
                     this._div_text_section.removeClass('d-none')
             }
             else{
+                this._cb_use_text.val('false')
                 if(!this._div_text_section.hasClass('d-none'))
                     this._div_text_section.addClass('d-none')
             }
@@ -150,10 +164,12 @@ export class AdminCustomPageMenuEvents{
     private setShowArticlesEvent(): void{
         this._cb_show_articles.on('change',()=>{
             if(this._cb_show_articles.is(':checked')){
+                this._cb_show_articles.val('true')
                 if(this._div_post_image_section.hasClass('d-none'))
                     this._div_post_image_section.removeClass('d-none')
             }
             else{
+                this._cb_show_articles.val('false')
                 if(!this._div_post_image_section.hasClass('d-none'))
                     this._div_post_image_section.addClass('d-none')
             }
