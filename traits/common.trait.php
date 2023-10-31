@@ -22,6 +22,7 @@ trait CommonTrait{
             'use_text' => 'false',
             'text' => '',
             'show_articles' => 'false',
+            'default_post_thumbnail' => ''
         ];
         array_walk($results,function($value,$key) use(&$results_kv){
             $results_kv[$value['name']] = $value['value'];
@@ -44,6 +45,7 @@ trait CommonTrait{
             'use_text' => false,
             'text' => false,
             'show_articles' => false,
+            'default_post_thumbnail' => ''
         ];
         array_walk($results,function($value,$key) use(&$found){
             $found[$value['name']] = true;
