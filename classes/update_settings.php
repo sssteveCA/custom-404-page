@@ -57,6 +57,11 @@ class UpdateSettings{
      */
     private string $show_articles;
 
+    /**
+     * URL of default post thumbnail
+     */
+    private string $post_image_path;
+
     public function __construct(wpdb $wpdb,array $data)
     {
         $this->wpdb = $wpdb;
@@ -78,7 +83,8 @@ class UpdateSettings{
                 in_array($data['use_title'],[true,false]) && 
                 in_array($data['use_image'],[true,false]) && 
                 in_array($data['use_text'],[true,false]) && 
-                in_array($data['show_articles'],[true,false])){
+                in_array($data['show_articles'],[true,false]) &&
+                in_array($data['post_image_path'],[true,false])){
                 if($data['use_title'] == true){
                     if(empty($data['title']))
                         throw new InvalidDataException;
@@ -90,6 +96,10 @@ class UpdateSettings{
                 }
                 if($data['use_text'] == true){
                     if(empty($data['text']))
+                        throw new InvalidDataException;
+                }
+                if($data['show_articles'] == true){
+                    if(empty($data['post_image_path']))
                         throw new InvalidDataException;
                 }
                 return;
@@ -113,6 +123,7 @@ class UpdateSettings{
         $this->use_text = $data['use_text'];
         $this->text = $data['text'];
         $this->show_articles = $data['show_articles'];
+        $this->post_image_path = $data['post_image_path'];
     }
 
     /**
@@ -135,6 +146,8 @@ class UpdateSettings{
         if($this->wpdb->update($this->table_name,['value' => $this->text],['name' => 'text'],['%s'],['%s']) === false)
             throw new SqlErrorException;
         if($this->wpdb->update($this->table_name,['value' => $this->show_articles],['name' => 'show_articles'], ['%s'],['%s']) === false)
+            throw new SqlErrorException;
+        if($this->wpdb->update($this->table_name,['value' => $this->post_image_path],['name' => 'post_image_path'],['%s'],['%s']) === false)
             throw new SqlErrorException;
     }
 

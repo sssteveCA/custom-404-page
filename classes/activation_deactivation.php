@@ -72,6 +72,8 @@ SQL;
             $this->wpdb->insert($this->table_name,['name' => 'text', 'value' => ''],['%s','%s']);
         if(!$found['show_articles'])
             $this->wpdb->insert($this->table_name,['name' => 'show_articles', 'value' => 'false'],['%s','%s']);
+        if(!$found['post_image_path'])
+            $this->wpdb->insert($this->table_name,['name' => 'post_image_path', 'value' => ''],['%s','%s']);
         
     }
 
