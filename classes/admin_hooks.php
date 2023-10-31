@@ -34,6 +34,7 @@ class AdminHooks{
             $useText = $peo->getUseText();
             $text = $peo->getText() ? $peo->getText() : "";
             $showArticles = $peo->getShowArticles();
+            $imagePostPath = $peo->getDefaultPostThumbnail();
             include __DIR__.'/../templates/custom_404_menu_page.php';
         });
     }

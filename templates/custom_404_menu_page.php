@@ -112,6 +112,24 @@
         <?php endif; ?>
                 <label for="show-random-articles" class="form-label ms-2">Mostra articoli</label>
             </div>
+        <?php if($showArticles): ?>
+            <div id="custom-404-post-image-section" class="row mt-1">
+        <?php else: ?>
+            <div id="custom-404-post-image-section" class="row mt-1 d-none">
+        <?php endif; ?>
+                <div class="col-12 col-lg-6">
+                    <label for="custom-404-post-image" class="form-label">Aggiungi o modifica la miniatura di default degli articoli</label>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <input type="file" id="custom-404-post-image" class="form-control" name="custom-404-post-image" accept="image/*">
+                    <input type="hidden" id="custom-404-post-image-path" name="image_post_path" value="<?php echo esc_url($imagePostPath); ?>">
+                </div>
+                <div id="custom-404-post-image-path-div" class="col-12 mt-2">
+                <?php if($imagePostPath): ?>
+                    Percorso immagine miniatura: <?php echo esc_url($imagePostPath); ?>
+                <?php endif; ?>       
+                </div>
+            </div>
         </div>
         <div id="custom-404-button-div" class="row mt-3">
             <div class="custom-404-col-button-div col-12 text-center">
