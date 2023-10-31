@@ -17,6 +17,9 @@ export class AdminCustomPageMenuEvents{
     private _div_text_section: JQuery<HTMLDivElement>;
     private _ta_text: JQuery<HTMLTextAreaElement>;
     private _cb_show_articles: JQuery<HTMLInputElement>;
+    private _div_post_image_section: JQuery<HTMLDivElement>;
+    private _input_file_post_image: JQuery<HTMLInputElement>;
+    private _input_post_image_path: JQuery<HTMLInputElement>;
     private _bt_save: JQuery<HTMLButtonElement>;
 
     constructor(data: AdminCustomPageMenuEventsType){
@@ -32,6 +35,9 @@ export class AdminCustomPageMenuEvents{
         this._div_text_section = data.div_text_section;
         this._ta_text = data.ta_text;
         this._cb_show_articles = data.cb_show_articles;
+        this._div_post_image_section = data.div_post_image_section;
+        this._input_file_post_image = data.input_file_post_image;
+        this._input_post_image_path = data.input_post_image_path;
         this._bt_save = data.bt_save;
     }
 
@@ -44,6 +50,9 @@ export class AdminCustomPageMenuEvents{
     get div_text_section(){ return this._div_text_section; }
     get ta_text(){ return this._ta_text; }
     get cb_show_articles(){ return this._cb_show_articles; }
+    get div_post_image_section(){ return this._div_post_image_section; }
+    get input_file_post_image(){ return this._input_file_post_image; }
+    get input_post_image_path(){ return this._input_post_image_path; }
     get bt_save(){ return this._bt_save; }
 
     /**
@@ -55,6 +64,7 @@ export class AdminCustomPageMenuEvents{
         this.setEnableTitleEvent();
         this.setEnableImageEvent();
         this.setEnableTextEvent();
+        this.setShowArticlesEvent();
         this.setSaveButtonEvent(onSaveButtonClick)
     }
 
@@ -125,6 +135,22 @@ export class AdminCustomPageMenuEvents{
     }
 
     /**
+     * Set the behavior when the show articles value change
+     */
+    private setShowArticlesEvent(): void{
+        this._cb_show_articles.on('change',()=>{
+            if(this._cb_show_articles.is(':checked')){
+                if(this._div_post_image_section.hasClass('d-none'))
+                    this._div_post_image_section.removeClass('d-none')
+            }
+            else{
+                if(!this._div_post_image_section.hasClass('d-none'))
+                    this._div_post_image_section.addClass('d-none')
+            }
+        })
+    }
+
+    /**
      * When the update settings button has been clicked
      * @param callback the callback to invoke on button click
      */
@@ -138,7 +164,8 @@ export class AdminCustomPageMenuEvents{
                 image_path: this._input_image_path.val() as string,
                 use_text: this._cb_use_text.val() as string,
                 text: this._ta_text.val() as string,
-                show_articles: this._cb_show_articles.val() as string
+                show_articles: this._cb_show_articles.val() as string,
+                post_image_path: this._input_post_image_path.val() as string
             }
             callback(acpustType);
         })

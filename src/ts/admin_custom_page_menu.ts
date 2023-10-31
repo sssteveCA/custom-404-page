@@ -25,6 +25,9 @@ jQuery(()=>{
         div_text_section: jQuery('#page-404-text-section'),
         ta_text: jQuery('#custom-404-text'),
         cb_show_articles: jQuery('#show-random-articles'),
+        div_post_image_section: jQuery('#custom-404-post-image-section'),
+        input_file_post_image: jQuery('#custom-404-post-image'),
+        input_post_image_path: jQuery('#custom-404-post-image-path'),
         bt_save: jQuery('#custom-404-button')
     }
     const spinner: JQuery<HTMLDivElement> = jQuery('#custom-404-button-spinner')

@@ -16,6 +16,9 @@ export type AdminCustomPageMenuEventsType = {
     div_text_section: JQuery<HTMLDivElement>;
     ta_text: JQuery<HTMLTextAreaElement>;
     cb_show_articles: JQuery<HTMLInputElement>;
+    div_post_image_section: JQuery<HTMLDivElement>;
+    input_file_post_image: JQuery<HTMLInputElement>;
+    input_post_image_path: JQuery<HTMLInputElement>;
     bt_save: JQuery<HTMLButtonElement>;
 }
 
@@ -31,6 +34,7 @@ export type AdminCustomPageUpdateSettingsType = {
     use_text: string;
     text: string;
     show_articles: string;
+    post_image_path: string;
 }
 
 /**
