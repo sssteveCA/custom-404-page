@@ -23,7 +23,7 @@
                             <div class="col-12 fs-4 fw-bolder text-center"><?php echo esc_html($text); ?></div>
                         </div>
                         <?php endif; ?>
-                        <?php if($showArticles): ?>
+                        <?php if($showArticles && $postImagePath): ?>
                         <div class="row mt-5">
                             <?php $args = [
                                 'post_type' => 'post',
@@ -40,8 +40,8 @@
                                         <?php
                                         if(has_post_thumbnail()):
                                             the_post_thumbnail('thumbnail'); ?>
-                                        <?php elseif(isset($defaultPostThumbnailUrl)): ?>
-                                            <img src="<?php echo esc_url($defaultPostThumbnailUrl); ?>" alt="Immagine articolo" title="Immagine articolo">
+                                        <?php else: ?>
+                                            <img src="<?php echo esc_url($postImagePath); ?>" alt="Immagine articolo" title="Immagine articolo">
                                         <?php endif; ?>
                                     </div>
                                     <h5 class="post-title"><?php the_title(); ?></h5>

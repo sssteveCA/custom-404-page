@@ -10,57 +10,12 @@ use wpdb;
 /**
  * Update the custom 404 page menu settings
  */
-class UpdateSettings{
+class UpdateSettings extends DatabaseProperties{
 
     const TABLE_NAME = "custom_404_page_table";
 
     private wpdb $wpdb;
     private string $table_name;
-
-    /**
-     * If the custom 404 page must be shown on 404 errors
-     */
-    private string $enable_custom_404_page;
-
-    /**
-     * If the page has a custom title
-     */
-    private string $use_title;
-
-    /**
-     * The custom 404 page header title
-     */
-    private string $title;
-
-    /**
-     * If the page has an image
-     */
-    private string $use_image;
-
-    /**
-     * The image for the 404 page (only if use_image is true)
-     */
-    private string $image_path;
-
-    /**
-     * If the page has custom text
-     */
-    private string $use_text;
-
-    /**
-     * The text for the 404 page (only if use_text is true)
-     */
-    private string $text;
-
-    /**
-     * If the 404 page must show some random articles
-     */
-    private string $show_articles;
-
-    /**
-     * URL of default post thumbnail
-     */
-    private string $post_image_path;
 
     public function __construct(wpdb $wpdb,array $data)
     {
@@ -78,7 +33,7 @@ class UpdateSettings{
      * @throws \CustomErrorPage\Exceptions\InvalidDataException
      */
     private function checkData(array $data){
-        if(isset($data['enable_custom_404_page'],$data['use_title'],$data['title'],$data['use_image'],$data['image_path'],$data['use_text'],$data['text'],$data['show_articles'])){
+        if(isset($data['enable_custom_404_page'],$data['use_title'],$data['title'],$data['use_image'],$data['image_path'],$data['use_text'],$data['text'],$data['show_articles'],$data['post_image_path'])){
             if(in_array($data['enable_custom_404_page'],[true,false]) && 
                 in_array($data['use_title'],[true,false]) && 
                 in_array($data['use_image'],[true,false]) && 

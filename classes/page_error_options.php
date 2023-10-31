@@ -8,58 +8,13 @@ use wpdb;
 /**
  * Manage custom 404 page options
  */
-class PageErrorOptions{
+class PageErrorOptions extends DatabaseProperties{
 
     use CommonTrait;
 
     private wpdb $wpdb;
 
     private string $table_name;
-
-    /**
-     * If the custom 404 page must be shown on 404 errors
-     */
-    private string $enable_custom_404_page;
-
-    /**
-     * If the page has a custom title
-     */
-    private string $use_title;
-
-    /**
-     * The custom 404 page header title
-     */
-    private string $title;
-
-    /**
-     * If the page has an image
-     */
-    private string $use_image;
-
-    /**
-     * The image for the 404 page (only if use_image is true)
-     */
-    private ?string $image_path;
-
-    /**
-     * If the page has custom text
-     */
-    private string $use_text;
-
-    /**
-     * The text for the 404 page (only if use_text is true)
-     */
-    private ?string $text;
-
-    /**
-     * If the 404 page must show some random articles
-     */
-    private string $show_articles;
-
-    /**
-     * URL of default post thumbnail
-     */
-    private string $post_image_path;
 
     public function __construct(wpdb $wpdb, string $table_name){
         $this->wpdb = $wpdb;

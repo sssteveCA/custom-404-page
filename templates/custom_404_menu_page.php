@@ -122,11 +122,11 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <input type="file" id="custom-404-post-image" class="form-control" name="custom-404-post-image" accept="image/*">
-                    <input type="hidden" id="custom-404-post-image-path" name="image_post_path" value="<?php echo esc_url($imagePostPath); ?>">
+                    <input type="hidden" id="custom-404-post-image-path" name="image_post_path" value="<?php echo esc_url($postImagePath); ?>">
                 </div>
                 <div id="custom-404-post-image-path-div" class="col-12 mt-2">
-                <?php if($imagePostPath): ?>
-                    Percorso immagine miniatura: <?php echo esc_url($imagePostPath); ?>
+                <?php if($postImagePath): ?>
+                    Percorso immagine miniatura: <?php echo esc_url($postImagePath); ?>
                 <?php endif; ?>       
                 </div>
             </div>
