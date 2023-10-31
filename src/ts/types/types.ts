@@ -45,3 +45,12 @@ export type MediaUploaderType = {
     input_image_path: JQuery<HTMLInputElement>;
     image_url_div: JQuery<HTMLDivElement>;
 }
+
+/**
+ * Type for PostMediaUploader class
+ */
+export type PostMediaUploaderType = {
+    input_file_post: JQuery<HTMLInputElement>;
+    input_post_image_path: JQuery<HTMLInputElement>;
+    post_image_url_div: JQuery<HTMLDivElement>;
+}
