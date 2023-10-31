@@ -38,7 +38,7 @@
                 <label for="custom-404-title" class="form-label">Titolo</label>
             </div>
             <div class="col-12 col-lg-6">
-                <input type="text" id="custom-404-title" class="form-control" name="custom-404-title" accept="image/*">
+                <input type="text" id="custom-404-title" class="form-control" name="custom-404-title" value="<?php echo esc_attr($title); ?>">
             </div>
         </div>
         <div class="row mt-3">
@@ -68,7 +68,7 @@
                 <input type="hidden" id="custom-404-image-path" name="image_path" value="<?php echo esc_url($imagePath); ?>">
             </div>
             <div id="custom-404-image-path-div" class="col-12 mt-2">
-            <?php if($imagePath): ?>
+            <?php if(!empty($imagePath)): ?>
                 Percorso immagine 404: <?php echo esc_url($imagePath); ?>
             <?php endif; ?>       
             </div>
@@ -125,7 +125,7 @@
                     <input type="hidden" id="custom-404-post-image-path" name="image_post_path" value="<?php echo esc_url($postImagePath); ?>">
                 </div>
                 <div id="custom-404-post-image-path-div" class="col-12 mt-2">
-                <?php if($postImagePath): ?>
+                <?php if(!empty($postImagePath)): ?>
                     Percorso immagine miniatura: <?php echo esc_url($postImagePath); ?>
                 <?php endif; ?>       
                 </div>

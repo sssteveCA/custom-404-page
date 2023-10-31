@@ -74,14 +74,24 @@ export class AdminCustomPageMenuEvents{
     private setEnablePageEvent(): void{
         this._cb_enable_custom_404_page.on('change',()=>{
             if(this._cb_enable_custom_404_page.is(':checked')){
+                this._cb_use_title.prop('disabled',false);
                 this._cb_use_image.prop('disabled',false)
                 this._cb_use_text.prop('disabled',false)
                 this._cb_show_articles.prop('disabled',false);
             }
             else{
+                this._cb_use_title.prop('disabled',true);
+                if(!this._div_title_section.hasClass('d-none'))
+                    this._div_title_section.addClass('d-none')
                 this._cb_use_image.prop('disabled',true)
+                if(!this._div_image_section.hasClass('d-none'))
+                    this._div_image_section.addClass('d-none')
                 this._cb_use_text.prop('disabled',true)
+                if(!this._div_text_section.hasClass('d-none'))
+                    this._div_text_section.addClass('d-none')
                 this._cb_show_articles.prop('disabled',true);
+                if(!this._div_post_image_section.hasClass('d-none'))
+                    this._div_post_image_section.addClass('d-none')
             }
         })
     }

@@ -38,8 +38,7 @@ class UpdateSettings extends DatabaseProperties{
                 in_array($data['use_title'],[true,false]) && 
                 in_array($data['use_image'],[true,false]) && 
                 in_array($data['use_text'],[true,false]) && 
-                in_array($data['show_articles'],[true,false]) &&
-                in_array($data['post_image_path'],[true,false])){
+                in_array($data['show_articles'],[true,false])){
                 if($data['use_title'] == true){
                     if(empty($data['title']))
                         throw new InvalidDataException;
