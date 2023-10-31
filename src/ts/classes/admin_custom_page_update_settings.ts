@@ -14,6 +14,7 @@ export class AdminCustomPageUpdateSettings{
     private _use_text: string;
     private _text: string;
     private _show_articles: string;
+    private _post_image_path: string;
     private _errno: number = 0;
     private _error: string|null = null;
 
@@ -32,6 +33,7 @@ export class AdminCustomPageUpdateSettings{
         this._use_text = data.use_text;
         this._text = data.text;
         this._show_articles = data.show_articles;
+        this._post_image_path = data.post_image_path;
     }
 
     get enable_custom_404_page(){ return this._enable_custom_404_page; }
@@ -42,6 +44,7 @@ export class AdminCustomPageUpdateSettings{
     get use_text(){ return this._use_text; }
     get text(){ return this._text; }
     get show_articles(){ return this._show_articles; }
+    get post_image_path(){ return this._post_image_path; }
     get errno(){ return this._errno; }
     get error(){
         switch(this._errno){
@@ -90,7 +93,8 @@ export class AdminCustomPageUpdateSettings{
                 'image_path': this._image_path,
                 'use_text': this._use_text,
                 'text': this._text,
-                'show_articles': this._show_articles
+                'show_articles': this._show_articles,
+                'post_image_path': this._post_image_path
             }
             fetch(AdminCustomPageUpdateSettings.UPDATESETTINGS_URL,{
                 method: 'POST',

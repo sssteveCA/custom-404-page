@@ -1,8 +1,9 @@
 import { AdminCustomPageMenuEvents } from "./classes/admin_custom_page_menu_events"
 import { AdminCustomPageUpdateSettings } from "./classes/admin_custom_page_update_settings"
 import { MediaUploader } from "./classes/media_uploader"
+import { PostMediaUploader } from "./classes/post_media_uploader"
 import { Constants } from "./namespace/constants"
-import { AdminCustomPageMenuEventsType, MediaUploaderType } from "./types/types"
+import { AdminCustomPageMenuEventsType, MediaUploaderType, PostMediaUploaderType } from "./types/types"
 import { AdminCustomPageUpdateSettingsType } from "./types/types"
 
 jQuery(()=>{
@@ -12,6 +13,12 @@ jQuery(()=>{
         image_url_div: jQuery('#custom-404-image-path-div')
     }
     const mu: MediaUploader = new MediaUploader(mut)
+    const pmut: PostMediaUploaderType = {
+        input_file_post: jQuery('#custom-404-post-image'),
+        input_post_image_path: jQuery('#custom-404-post-image-path'),
+        post_image_url_div: jQuery('#custom-404-post-image-path-div')
+    }
+    const pmu: PostMediaUploader = new PostMediaUploader(pmut)
     const acpmet: AdminCustomPageMenuEventsType = {
         cb_enable_custom_404_page: jQuery('#enable-custom-404-page'),
         cb_use_title: jQuery('#use-custom-404-title'),
