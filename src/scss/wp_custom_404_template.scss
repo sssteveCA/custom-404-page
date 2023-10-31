@@ -1,18 +1,15 @@
+@use "./modules/mixins.scss" as m;
+
 @mixin custom-404-page(){
     section.error-404.not-found{
         div.page-content{
             div.container-fluid{
                 div.row{
-                    div.custom-page-404-image{
-                        text-align: center;
-                        img{
-                            width: clamp(150px,25vw,350px);
-                            height: clamp(150px, 25vh, 350px);
-                        }
-                    }
+                    @include m.image-style('.custom-page-404-image',clamp(300px,40vw,500px),clamp(150px, 40vh, 250px));
                     div.post-link-wrapper{
                         a.post-link{
                             text-decoration: none;
+                            @include m.image-style('.post-thumbnail',100px,100px);
                         }
                     }
                 }

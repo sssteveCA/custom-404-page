@@ -1,0 +1,20 @@
+
+@mixin image-style($container-class,$container-width,$container-height){
+    #{$container-class}{
+        width: $container-width;
+        height: $container-height;
+        position: relative;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
