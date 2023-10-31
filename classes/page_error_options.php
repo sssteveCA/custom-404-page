@@ -56,6 +56,11 @@ class PageErrorOptions{
      */
     private string $show_articles;
 
+    /**
+     * URL of default post thumbnail
+     */
+    private string $default_post_thumbnail;
+
     public function __construct(wpdb $wpdb, string $table_name){
         $this->wpdb = $wpdb;
         $this->table_name = $table_name;
@@ -70,6 +75,7 @@ class PageErrorOptions{
     public function getUseText(): string{return $this->use_text;}
     public function getText(): string{ return $this->text;}
     public function getShowArticles(): string{return $this->show_articles;}
+    public function getDefaultPostThumbnail(): string{return $this->default_post_thumbnail;}
 
     /**
      * Fetch the options from the database table
@@ -88,6 +94,7 @@ SQL;
         $this->use_text = $results_kv['use_text'];
         $this->text = $results_kv['text'];
         $this->show_articles = $results_kv['show_articles'];
+        $this->default_post_thumbnail = $results_kv['default_post_thumbnail'];
     }
 
 
