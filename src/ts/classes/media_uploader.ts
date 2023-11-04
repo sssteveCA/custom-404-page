@@ -1,12 +1,16 @@
 import { MediaUploaderType } from "../types/types";
 
 /**
- * Display the Wordpress media uploader
+ * Display the Wordpress media uploader and choose the image for custom 404 page
  */
 export class MediaUploader{
+
     private _input_file: JQuery<HTMLInputElement>;
     private _input_image_path: JQuery<HTMLInputElement>;
     private _image_url_div: JQuery<HTMLDivElement>;
+    /**
+     * An instance of the Wordpress Media Uploader
+     */
     private _media_uploader_ref: any;
 
     constructor(data: MediaUploaderType){

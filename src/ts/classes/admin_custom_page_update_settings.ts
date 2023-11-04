@@ -2,7 +2,7 @@ import { Constants } from "../namespace/constants";
 import { AdminCustomPageUpdateSettingsType } from "../types/types";
 
 /**
- * Update ccustom 404 page settings class
+ * Update custom 404 page settings class
  */
 export class AdminCustomPageUpdateSettings{
 
@@ -17,9 +17,8 @@ export class AdminCustomPageUpdateSettings{
     private _post_image_path: string;
     private _errno: number = 0;
     private _error: string|null = null;
-
+	
     private static UPDATESETTINGS_URL:string = Constants.scriptPath()+'/update_settings_script.php';
-
     public static ERR_FETCH: number = 1;
     private static ERR_FETCH_MSG:string = "Errore durante l'esecuzione della richiesta.";
 
@@ -59,7 +58,7 @@ export class AdminCustomPageUpdateSettings{
     }
 
     /**
-     * Execute the request to update the settings
+     * Execute HTTP the request to update the settings
      */
     public async updateSettings(): Promise<object>{
         let response: object = {}

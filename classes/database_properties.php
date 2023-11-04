@@ -40,7 +40,7 @@ class DatabaseProperties{
     /**
      * The text for the 404 page (only if use_text is true)
      */
-    protected ?string $text;
+    protected string $text;
 
     /**
      * If the 404 page must show some random articles

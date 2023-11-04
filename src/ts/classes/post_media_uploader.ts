@@ -4,9 +4,13 @@ import { PostMediaUploaderType } from "../types/types";
  * Display the Wordpress media uploader
  */
 export class PostMediaUploader{
+    
     private _input_file_post: JQuery<HTMLInputElement>;
     private _input_post_image_path: JQuery<HTMLInputElement>;
     private _post_image_url_div: JQuery<HTMLDivElement>;
+    /**
+     * An instance of the Wordpress Media Uploader
+     */
     private _media_uploader_ref: any;
 
     constructor(data: PostMediaUploaderType){
