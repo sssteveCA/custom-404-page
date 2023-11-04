@@ -3,8 +3,8 @@
 		<main id="main" class="site-main">
 			<section class="error-404 not-found">
                 <?php if($useTitle && !empty($title)): ?>
-				<header class="page-header">
-					<h1 class="page-title text-center fs-2 fw-bold"><? echo esc_html($title); ?></h1>
+				<header class="custom-404-page-header">
+					<h1 class="page-title text-center fs-2 fw-bold"><?php echo esc_html($title); ?></h1>
 				</header><!-- .page-header -->
                 <?php endif; ?>
 				<div class="page-content">
