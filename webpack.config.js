@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 
 module.exports = {
-    devtool: 'source-map',
+    //devtool: 'source-map',
     entry: {
         'css/admin_custom_page_menu': join(scssPath,'admin_custom_page_menu.scss'),
         'css/wp_custom_404_template': join(scssPath,'wp_custom_404_template.scss'),
