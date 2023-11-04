@@ -1,4 +1,5 @@
 
+/*Used to set the style of an image with <img> tag*/
 @mixin image-style($container-class,$image-width,$image-height){
     #{$container-class}{
         text-align: center;

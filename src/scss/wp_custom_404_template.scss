@@ -1,5 +1,6 @@
 @use "./modules/mixins.scss" as m;
 
+/*Style for the custom 404 page on frontend*/
 @mixin custom-404-page(){
     section.error-404.not-found{
         div.page-content{
