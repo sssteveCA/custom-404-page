@@ -2,7 +2,7 @@
 <div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<section class="error-404 not-found">
-                <?php if($useTitle && !empty($title)): ?>
+                <?php if($useTitle == 'true' && !empty($title)): ?>
 				<header class="custom-404-page-header">
 					<h1 class="page-title text-center fs-2 fw-bold"><?php echo esc_html($title); ?></h1>
 				</header><!-- .page-header -->
@@ -11,19 +11,19 @@
                     <div class="container-fluid">
                         <?php
                         $urlPattern = '/^(https?:\/\/)?([a-z\d.-_]+)\.([a-z]{2,6})(\/([^\s]*)?)?$/i';
-                         if($useImage && preg_match($urlPattern,$imagePath)): ?>
+                         if($useImage == 'true' && preg_match($urlPattern,$imagePath)): ?>
                         <div class="row mt-3">
                             <div class="custom-page-404-image col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
                                 <img src="<?php echo esc_url($imagePath); ?>" alt="Pagina non trovata" title="Pagina non trovata">
                             </div>
                         </div>
                         <?php endif; ?>
-                        <?php if($useText && !empty($text)): ?>
+                        <?php if($useText == 'true' && !empty($text)): ?>
                         <div class="row mt-3 gx-md-2 gx-lg-4">
                             <div class="col-12 fs-4 fw-bolder text-center"><?php echo esc_html($text); ?></div>
                         </div>
                         <?php endif; ?>
-                        <?php if($showArticles && $postImagePath): ?>
+                        <?php if($showArticles == 'true' && !empty($postImagePath)): ?>
                         <div class="row mt-5">
                             <?php $args = [
                                 'post_type' => 'post',

@@ -32,7 +32,7 @@ class WpHooks{
                 $useText = $peo->getUseText();
                 $text = $peo->getText() ? $peo->getText() : "";
                 $showArticles = $peo->getShowArticles();
-                $postImagePath = $peo->getPostImagePath();
+                $postImagePath = $peo->getPostImagePath() ? $peo->getPostImagePath() : "";
                 include $custom_404_template_path;
                 exit();
             }
