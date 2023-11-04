@@ -28,6 +28,11 @@ interface Constants{
     const ADMIN_PAGE_404_MENU_JS = '/custom_404_page/dist/js/admin_custom_page_menu.js';
 
     /**
+     * Relative path to the custom 404 frontend page
+     */
+    const CUSTOM_404_PAGE_CSS_REL = '/custom_404_page/dist/css/wp_custom_404_template.css';
+
+    /**
      * Name of the SQL table created on plugin activation
      */
     const TABLE_NAME = "custom_404_page_table";

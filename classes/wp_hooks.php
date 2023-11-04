@@ -10,8 +10,6 @@ class WpHooks{
 
     use HooksTrait;
 
-    const CUSTOM_404_PAGE_CSS_REL = '/custom_404_page/dist/css/wp_custom_404_template.css';
-
     private wpdb $wpdb;
 
     public function __construct(wpdb $wpdb){
@@ -45,9 +43,9 @@ class WpHooks{
      * Enqueue the necessary scripts for the custom 404 page
      */
     public function enqueue_custom_404_page_scripts(){
-        $custom404PageCssAbs = WP_PLUGIN_DIR.self::CUSTOM_404_PAGE_CSS_REL;
+        $custom404PageCssAbs = WP_PLUGIN_DIR.C::CUSTOM_404_PAGE_CSS_REL;
         if(file_exists($custom404PageCssAbs)){
-            $custom404PageCssUrl = plugins_url().self::CUSTOM_404_PAGE_CSS_REL;
+            $custom404PageCssUrl = plugins_url().C::CUSTOM_404_PAGE_CSS_REL;
             wp_enqueue_style('custom404PageCss',$custom404PageCssUrl,[],null);
         }
     }
