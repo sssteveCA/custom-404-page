@@ -6,10 +6,10 @@
   "author": "Stefano Puggioni",
   "license": "ISC",
   "dependencies": {
-    "@types/jquery": "^3.5.25",
     "bootstrap": "^5.3.2"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.25",
     "css-loader": "^6.8.1",
     "mini-css-extract-plugin": "^2.7.6",
     "sass": "^1.69.5",
