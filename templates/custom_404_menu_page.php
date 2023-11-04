@@ -7,7 +7,7 @@
         </div>
         <div class="row mt-3">
             <div class="col">
-            <?php if($enabledCustomPage): ?>
+            <?php if($enabledCustomPage == 'true'): ?>
                 <input type="checkbox" id="enable-custom-404-page" class="form-check-input" name="enable-custom-404-page" value="true" checked>
             <?php else: ?>
                 <input type="checkbox" id="enable-custom-404-page" class="form-check-input" name="enable-custom-404-page" value="true">
@@ -17,8 +17,8 @@
         <div>
         <div class="row mt-3">
             <div class="col-12">
-                <?php if($enabledCustomPage): ?>
-                    <?php if($useTitle): ?>
+                <?php if($enabledCustomPage == 'true'): ?>
+                    <?php if($useTitle == 'true'): ?>
                         <input type="checkbox" id="use-custom-404-title" class="form-check-input" name="use-custom-404-title" value="true" checked>
                     <?php else: ?>
                         <input type="checkbox" id="use-custom-404-title" class="form-check-input" name="use-custom-404-title" value="true">
@@ -29,7 +29,7 @@
                     <label for="use-custom-404-title" class="form-label ms-2">Titolo per la pagina 404</label>
             </div>
         </div>
-        <?php if($enabledCustomPage && $useTitle): ?>
+        <?php if($enabledCustomPage == 'true' && $useTitle == 'true'): ?>
         <div id="custom-404-title-section" class="row mt-1">
         <?php else: ?>
         <div id="custom-404-title-section" class="row mt-1 d-none">
@@ -43,8 +43,8 @@
         </div>
         <div class="row mt-3">
             <div class="col-12">
-            <?php if($enabledCustomPage): ?>
-                <?php if($useImage): ?>
+            <?php if($enabledCustomPage == 'true'): ?>
+                <?php if($useImage == 'true'): ?>
                 <input type="checkbox" id="use-custom-404-image" class="form-check-input" name="use-custom-404-image" value="true" checked>
                 <?php else: ?>
                 <input type="checkbox" id="use-custom-404-image" class="form-check-input" name="use-custom-404-image" value="true">
@@ -55,7 +55,7 @@
                 <label for="use-custom-404-image" class="form-label ms-2">Utilizza un'immagine per la pagina 404</label>
             </div>
         </div>
-        <?php if($enabledCustomPage && $useImage): ?>
+        <?php if($enabledCustomPage == 'true' && $useImage == 'true'): ?>
         <div id="custom-404-image-section" class="row mt-1">
         <?php else: ?>
         <div id="custom-404-image-section" class="row mt-1 d-none">
@@ -75,8 +75,8 @@
         </div>
         <div class="row mt-3">
             <div class="col-12">
-            <?php if($enabledCustomPage): ?>
-                <?php if($useText): ?>
+            <?php if($enabledCustomPage == 'true'): ?>
+                <?php if($useText == 'true'): ?>
                 <input type="checkbox" id="use-custom-404-text" class="form-check-input" name="use-custom-404-text" value="true" checked>
                 <?php else: ?>
                 <input type="checkbox" id="use-custom-404-text" class="form-check-input" name="use-custom-404-text" value="true">
@@ -87,7 +87,7 @@
                 <label for="use-custom-404-text" class="form-label ms-2">Utilizza un testo per la pagina 404</label>
             </div>
         </div>
-        <?php if($enabledCustomPage && $useText): ?>
+        <?php if($enabledCustomPage == 'true' && $useText == 'true'): ?>
         <div id="page-404-text-section" class="row mt-1">
         <?php else: ?>
         <div id="page-404-text-section" class="row mt-1 d-none">
@@ -101,8 +101,8 @@
         </div>
         <div class="row mt-3">
             <div class="col">
-        <?php if($enabledCustomPage): ?>
-            <?php if($showArticles): ?>
+        <?php if($enabledCustomPage == 'true'): ?>
+            <?php if($showArticles == 'true'): ?>
                 <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="true" checked> 
             <?php else: ?>
                 <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="true">
