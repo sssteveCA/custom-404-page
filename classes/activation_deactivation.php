@@ -1,7 +1,7 @@
 <?php
 
 namespace CustomErrorPage\Classes;
-use CustomErrorPage\Interfaces\Constants;
+use CustomErrorPage\Interfaces\Constants as C;
 use CustomErrorPage\Traits\CommonTrait;
 
 /**
@@ -11,15 +11,13 @@ class ActivationDeactivation{
 
     use CommonTrait;
 
-    const TABLE_NAME = "custom_404_page_table";
-
     private \wpdb $wpdb;
 
     private string $table_name;
 
     public function __construct(\wpdb $wpdb){
         $this->wpdb = $wpdb;
-        $this->table_name = $this->wpdb->prefix.self::TABLE_NAME;
+        $this->table_name = $this->wpdb->prefix.C::TABLE_NAME;
     }
 
     /**

@@ -5,6 +5,7 @@ namespace CustomErrorPage\Classes;
 use CustomErrorPage\Exceptions\InvalidDataException;
 use CustomErrorPage\Exceptions\MissingDataException;
 use CustomErrorPage\Exceptions\SqlErrorException;
+use CustomErrorPage\Interfaces\Constants as C;
 use wpdb;
 
 /**
@@ -12,15 +13,13 @@ use wpdb;
  */
 class UpdateSettings extends DatabaseProperties{
 
-    const TABLE_NAME = "custom_404_page_table";
-
     private wpdb $wpdb;
     private string $table_name;
 
     public function __construct(wpdb $wpdb,array $data)
     {
         $this->wpdb = $wpdb;
-        $this->table_name = $this->wpdb->prefix.self::TABLE_NAME;
+        $this->table_name = $this->wpdb->prefix.C::TABLE_NAME;
         $this->checkData($data);
         $this->assignData($data);
         $this->updateTable();

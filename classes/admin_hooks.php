@@ -25,7 +25,7 @@ class AdminHooks{
      */
     public function custom_404_page_menu(){
         add_menu_page('Pagina 404 personalizzata','Pagina 404 personalizzata','administrator','custom-404-page',function(){
-            $peo = new PageErrorOptions($this->wpdb,$this->wpdb->prefix.self::TABLE_NAME);
+            $peo = new PageErrorOptions($this->wpdb,$this->wpdb->prefix.C::TABLE_NAME);
             $enabledCustomPage = $peo->getEnableCustom404Page();
             $useTitle = $peo->getUseTitle();
             $title = $peo->getTitle();
@@ -45,16 +45,14 @@ class AdminHooks{
     public function enqueue_admin_files(){
         if($_REQUEST['page'] == 'custom-404-page'){
             wp_enqueue_media();
-            $css_stylesheet_relative = '/custom_404_page/dist/css/admin_custom_page_menu.css';
-            $css_stylesheet = WP_PLUGIN_DIR.$css_stylesheet_relative;
+            $css_stylesheet = WP_PLUGIN_DIR.C::ADMIN_PAGE_404_MENU_CSS;
             if(file_exists($css_stylesheet)){
-                $css_stylesheet_url = plugins_url().$css_stylesheet_relative;
+                $css_stylesheet_url = plugins_url().C::ADMIN_PAGE_404_MENU_CSS;
                 wp_enqueue_style('Custom404PageMenuCSS',$css_stylesheet_url,[],null);
             }
-            $js_script_relative = '/custom_404_page/dist/js/admin_custom_page_menu.js';
-            $js_script = WP_PLUGIN_DIR.$js_script_relative;
+            $js_script = WP_PLUGIN_DIR.C::ADMIN_PAGE_404_MENU_JS;
             if(file_exists($js_script)){
-                $js_script_url = plugins_url().$js_script_relative;
+                $js_script_url = plugins_url().C::ADMIN_PAGE_404_MENU_JS;
                 wp_enqueue_script('Custom404PageMenuJS',$js_script_url,[],null,true);
             }
         }
