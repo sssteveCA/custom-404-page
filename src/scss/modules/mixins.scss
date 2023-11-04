@@ -2,7 +2,8 @@
 /*Used to set the style of an image with <img> tag*/
 @mixin image-style($container-class,$image-width,$image-height){
     #{$container-class}{
-        text-align: center;
+        display: flex;
+        justify-content: center;
         img{
             width: $image-width;
             height: $image-height;
