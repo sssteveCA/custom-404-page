@@ -12,8 +12,7 @@
         <li><b>npm i</b></li>
         <li><b>composer install</b></li>
         <li><b>npm run dev</b></li>
-    </ul>
-    
+    </ul>  
 </div>
 <div>
     <br><br>
@@ -26,3 +25,5 @@
        <li>Install the plugin uploading the created zip file</li>
     </ul>
 </div>
+<br><br>
+<a href="https://github.com/sssteveCA/custom-404-page/assets/95185311/ae2cc847-5cb6-4819-806e-33bc86aa240f">Demo video</a>
