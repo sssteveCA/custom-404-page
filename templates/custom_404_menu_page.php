@@ -10,7 +10,7 @@
             <?php if($enabledCustomPage == 'true'): ?>
                 <input type="checkbox" id="enable-custom-404-page" class="form-check-input" name="enable-custom-404-page" value="true" checked>
             <?php else: ?>
-                <input type="checkbox" id="enable-custom-404-page" class="form-check-input" name="enable-custom-404-page" value="true">
+                <input type="checkbox" id="enable-custom-404-page" class="form-check-input" name="enable-custom-404-page" value="false">
             <?php endif; ?>
                 <label for="enable-custom-404-page" class="form-label ms-2">Utilizza la pagina 404</label>
             </div>
@@ -21,10 +21,10 @@
                     <?php if($useTitle == 'true'): ?>
                         <input type="checkbox" id="use-custom-404-title" class="form-check-input" name="use-custom-404-title" value="true" checked>
                     <?php else: ?>
-                        <input type="checkbox" id="use-custom-404-title" class="form-check-input" name="use-custom-404-title" value="true">
+                        <input type="checkbox" id="use-custom-404-title" class="form-check-input" name="use-custom-404-title" value="false">
                     <?php endif; ?>
                 <?php else: ?>
-                    <input type="checkbox" id="use-custom-404-title" class="form-check-input" name="use-custom-404-title" value="true" disabled>
+                    <input type="checkbox" id="use-custom-404-title" class="form-check-input" name="use-custom-404-title" value="false" disabled>
                 <?php endif; ?>
                     <label for="use-custom-404-title" class="form-label ms-2">Titolo per la pagina 404</label>
             </div>
@@ -47,10 +47,10 @@
                 <?php if($useImage == 'true'): ?>
                 <input type="checkbox" id="use-custom-404-image" class="form-check-input" name="use-custom-404-image" value="true" checked>
                 <?php else: ?>
-                <input type="checkbox" id="use-custom-404-image" class="form-check-input" name="use-custom-404-image" value="true">
+                <input type="checkbox" id="use-custom-404-image" class="form-check-input" name="use-custom-404-image" value="false">
                 <?php endif; ?>
             <?php else: ?>
-                <input type="checkbox" id="use-custom-404-image" class="form-check-input" name="use-custom-404-image" value="true" disabled>
+                <input type="checkbox" id="use-custom-404-image" class="form-check-input" name="use-custom-404-image" value="false" disabled>
             <?php endif; ?>    
                 <label for="use-custom-404-image" class="form-label ms-2">Utilizza un'immagine per la pagina 404</label>
             </div>
@@ -79,10 +79,10 @@
                 <?php if($useText == 'true'): ?>
                 <input type="checkbox" id="use-custom-404-text" class="form-check-input" name="use-custom-404-text" value="true" checked>
                 <?php else: ?>
-                <input type="checkbox" id="use-custom-404-text" class="form-check-input" name="use-custom-404-text" value="true">
+                <input type="checkbox" id="use-custom-404-text" class="form-check-input" name="use-custom-404-text" value="false">
                 <?php endif; ?>
             <?php else: ?>
-                <input type="checkbox" id="use-custom-404-text" class="form-check-input" name="use-custom-404-text" value="true" disabled>
+                <input type="checkbox" id="use-custom-404-text" class="form-check-input" name="use-custom-404-text" value="false" disabled>
             <?php endif; ?>
                 <label for="use-custom-404-text" class="form-label ms-2">Utilizza un testo per la pagina 404</label>
             </div>
@@ -105,10 +105,10 @@
             <?php if($showArticles == 'true'): ?>
                 <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="true" checked> 
             <?php else: ?>
-                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="true">
+                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="false">
             <?php endif; ?>
         <?php else: ?>
-                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="true" disabled>
+                <input type="checkbox" id="show-random-articles" class="form-check-input" name="show-random-articles" value="false" disabled>
         <?php endif; ?>
                 <label for="show-random-articles" class="form-label ms-2">Mostra articoli</label>
             </div>

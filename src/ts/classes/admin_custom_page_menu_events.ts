@@ -80,6 +80,7 @@ export class AdminCustomPageMenuEvents{
                 this._cb_show_articles.prop('disabled',false)
             }
             else{
+                this._cb_enable_custom_404_page.val('false')
                 this._cb_use_title.prop('disabled',true)
                 this._cb_use_title.prop('checked',false)
                 this._cb_use_title.val('false')
