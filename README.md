@@ -25,6 +25,4 @@
        <li>Create the .zip archive with this command: <b>zip -r classes dist exceptions interfaces node_modules scripts templates traits vendor custom_404_page.php</b></li>
        <li>Install the plugin uploading the created zip file</li>
     </ul>
-    
-    
 </div>

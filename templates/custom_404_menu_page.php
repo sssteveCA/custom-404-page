@@ -112,7 +112,7 @@
         <?php endif; ?>
                 <label for="show-random-articles" class="form-label ms-2">Mostra articoli</label>
             </div>
-        <?php if($showArticles): ?>
+        <?php if($showArticles == 'true'): ?>
             <div id="custom-404-post-image-section" class="row mt-1">
         <?php else: ?>
             <div id="custom-404-post-image-section" class="row mt-1 d-none">
